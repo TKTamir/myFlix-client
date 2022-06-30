@@ -9,7 +9,7 @@ class MyFlixApplication extends React.Component {
   render() {
     return (
       <MainView />
-    );
+    ); 
   }
 }
 
