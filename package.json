@@ -10,10 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
-    "prop": "^0.1.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "types": "^0.1.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-rc.0"
