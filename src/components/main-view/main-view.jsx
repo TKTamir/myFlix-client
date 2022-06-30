@@ -38,6 +38,14 @@ setSelectedMovie(movie) {
     });
   }
 
+  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
+
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
   render() {
     const { movies, selectedMovie } = this.state;
 
