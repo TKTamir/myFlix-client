@@ -25538,7 +25538,16 @@ MovieCard.propTypes = {
         Title: _propTypesDefault.default.string,
         Description: _propTypesDefault.default.string.isRequired,
         ReleaseYear: _propTypesDefault.default.string.isRequired,
-        RunTime: _propTypesDefault.default.string.isRequired
+        RunTime: _propTypesDefault.default.string.isRequired,
+        Genre: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Description: _propTypesDefault.default.string.isRequired
+        }),
+        Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Bio: _propTypesDefault.default.string.isRequired,
+            Birth: _propTypesDefault.default.string.isRequired
+        })
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
@@ -26459,13 +26468,114 @@ class MovieView extends _reactDefault.default.Component {
                         })
                     ]
                 }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-Genre",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 36
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 37
+                            },
+                            __self: this,
+                            children: "Genre: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 38
+                            },
+                            __self: this,
+                            children: movie.Genre
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 39
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "label",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 40
+                                    },
+                                    __self: this,
+                                    children: "Name: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 41
+                                    },
+                                    __self: this,
+                                    children: movie.Genre.Name
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "label",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 42
+                                    },
+                                    __self: this,
+                                    children: "Description: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 43
+                                    },
+                                    __self: this,
+                                    children: movie.Genre.Description
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-director",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 46
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 47
+                            },
+                            __self: this,
+                            children: "Director: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 48
+                            },
+                            __self: this,
+                            children: movie.Director
+                        })
+                    ]
+                }),
                 /*#__PURE__*/ _jsxRuntime.jsx("button", {
                     onClick: ()=>{
                         onBackClick(null);
                     },
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 37
+                        lineNumber: 51
                     },
                     __self: this,
                     children: "Back"
