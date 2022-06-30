@@ -28,6 +28,7 @@ MovieCard.propTypes = {
       Bio: PropTypes.string.isRequired,
       Birth: PropTypes.string.isRequired,
     }),
+    ImagePath: PropTypes.string,
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired,
 };
