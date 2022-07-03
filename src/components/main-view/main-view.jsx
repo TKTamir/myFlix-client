@@ -72,34 +72,36 @@ the state of the `selectedMovie` *property to that movie*/
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <Container className="mainViewContainer">
-        {selectedMovie ? (
-          <Row className="main-view justify-content-md-center">
-            <Col md={8}>
-              <MovieView
-                movie={selectedMovie}
-                onBackClick={(newSelectedMovie) => {
-                  this.setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          </Row>
-        ) : (
-          <Row className="justify-content-md-center">
-            {movies.map((movie) => (
-              <Col lg={3} md={4} sm={6}>
-                <MovieCard
-                  key={movie._id}
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
+      <div className="main-view">
+        <Container className="mainViewContainer fluid">
+          {selectedMovie ? (
+            <Row className="justify-content-md-center">
+              <Col md={8}>
+                <MovieView
+                  movie={selectedMovie}
+                  onBackClick={(newSelectedMovie) => {
                     this.setSelectedMovie(newSelectedMovie);
                   }}
                 />
               </Col>
-            ))}
-          </Row>
-        )}
-      </Container>
+            </Row>
+          ) : (
+            <Row className="justify-content-md-center">
+              {movies.map((movie) => (
+                <Col lg={3} md={4} sm={6}>
+                  <MovieCard
+                    key={movie._id}
+                    movie={movie}
+                    onMovieClick={(newSelectedMovie) => {
+                      this.setSelectedMovie(newSelectedMovie);
+                    }}
+                  />
+                </Col>
+              ))}
+            </Row>
+          )}
+        </Container>
+      </div>
     );
   }
 }
