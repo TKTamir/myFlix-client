@@ -3,7 +3,16 @@
 
 
 
-.my-flix {
-  color: steelblue;
+body, html {
+  background: #AC3B61;
+}
+
+.app-container {
+  width: 100%;
+  background: #AC3B61;
+}
+
+.movieViewContainer {
+  background: #ffffff;
 }
 /*# sourceMappingURL=index.3f764291.css.map */

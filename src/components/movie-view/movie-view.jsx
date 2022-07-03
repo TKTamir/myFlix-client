@@ -85,6 +85,8 @@ export class MovieView extends React.Component {
             >
               Back
             </Button>
+            <Button className="ml-2">Add to Favorites</Button>
+            <Button className="ml-2">Remove from Favorites</Button>
           </Col>
         </Row>
       </Container>

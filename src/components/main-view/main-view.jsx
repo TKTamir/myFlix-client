@@ -77,11 +77,13 @@ the state of the `selectedMovie` *property to that movie*/
           <Container fluid>
             <Navbar.Brand href="#home">AppforMovies</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Profile</Nav.Link>
-              <Nav.Link href="#update">Update Profile</Nav.Link>
-              <Nav.Link href="#logout">Logout</Nav.Link>
-            </Nav>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link href="#profile">Profile</Nav.Link>
+                <Nav.Link href="#update">Update Profile</Nav.Link>
+                <Nav.Link href="#logout">Logout</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
         <Container fluid className="mainViewContainer">

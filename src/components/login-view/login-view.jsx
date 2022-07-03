@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
+import { Form, Button, Card, CardGroup, Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -17,6 +17,17 @@ export function LoginView(props) {
 
   return (
     <Container fluid className="loginContainer my-3 mx-12 ">
+      <Navbar bg="light" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#home">AppforMovies</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#Register">Register</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Row>
         <Col>
           <CardGroup>

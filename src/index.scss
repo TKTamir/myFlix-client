@@ -1,5 +1,16 @@
-$color : steelblue;
+$color: #123c69 ;
+$color2: #AC3B61 ;
+$color3: #ffffff ;
 
-.my-flix {
-    color: $color;
+body, html{
+
+    background: $color2;
+}
+
+.app-container {
+    width: 100%;
+    background: $color2;
+}
+.movieViewContainer{
+    background: $color3;
 }
