@@ -25482,77 +25482,98 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
             },
             __self: this
         }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 75
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-                className: "mainViewContainer fluid",
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 76
-                },
-                __self: this,
-                children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    className: "justify-content-md-center",
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
+                    bg: "navColor",
+                    variant: "dark",
+                    expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 78
+                        lineNumber: 76
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                        md: 8,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+                        fluid: true,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 79
+                            lineNumber: 77
                         },
-                        __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                            movie: selectedMovie,
-                            onBackClick: (newSelectedMovie)=>{
-                                this.setSelectedMovie(newSelectedMovie);
-                            },
-                            __source: {
-                                fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 80
-                            },
-                            __self: this
-                        })
+                        __self: this
                     })
-                }) : /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    className: "justify-content-md-center",
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+                    fluid: true,
+                    className: "mainViewContainer",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 89
+                        lineNumber: 79
                     },
                     __self: this,
-                    children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                            lg: 3,
-                            md: 4,
-                            sm: 6,
+                    children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                        className: "justify-content-md-center",
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 81
+                        },
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                            md: 8,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 91
+                                lineNumber: 82
                             },
                             __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                                movie: movie,
-                                onMovieClick: (newSelectedMovie)=>{
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+                                movie: selectedMovie,
+                                onBackClick: (newSelectedMovie)=>{
                                     this.setSelectedMovie(newSelectedMovie);
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 92
+                                    lineNumber: 83
                                 },
                                 __self: this
-                            }, movie._id)
+                            })
                         })
-                    )
+                    }) : /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                        className: "justify-content-md-center",
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 92
+                        },
+                        __self: this,
+                        children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                lg: 3,
+                                md: 4,
+                                sm: 6,
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 94
+                                },
+                                __self: this,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                                    movie: movie,
+                                    onMovieClick: (newSelectedMovie)=>{
+                                        this.setSelectedMovie(newSelectedMovie);
+                                    },
+                                    __source: {
+                                        fileName: "src/components/main-view/main-view.jsx",
+                                        lineNumber: 95
+                                    },
+                                    __self: this
+                                }, movie._id)
+                            })
+                        )
+                    })
                 })
-            })
+            ]
         }));
     }
 }
@@ -25585,7 +25606,8 @@ class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-            className: "movieCardContainer fluid",
+            fluid: true,
+            className: "movieCardContainer",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 12
@@ -38528,7 +38550,8 @@ class MovieView extends _reactDefault.default.Component {
     render() {
         const { movie , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-            className: "movieViewContainer fluid",
+            fluid: true,
+            className: "movieViewContainer",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 20
@@ -42114,7 +42137,8 @@ function LoginView(props) {
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-        className: "loginContainer fluid my-3 mx-12 ",
+        fluid: true,
+        className: "loginContainer my-3 mx-12 ",
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
             lineNumber: 19
@@ -42290,7 +42314,8 @@ function RegistrationView(props) {
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onRegistration(username);
     };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-        className: "registerContainer fluid text-center my-3 mx-12",
+        fluid: true,
+        className: "registerContainer text-center my-3 mx-12",
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
             lineNumber: 22

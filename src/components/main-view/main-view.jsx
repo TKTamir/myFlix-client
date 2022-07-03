@@ -73,7 +73,10 @@ the state of the `selectedMovie` *property to that movie*/
 
     return (
       <div className="main-view">
-        <Container className="mainViewContainer fluid">
+        <Navbar bg="navColor" variant="dark" expand="lg">
+          <Container fluid></Container>
+        </Navbar>
+        <Container fluid className="mainViewContainer">
           {selectedMovie ? (
             <Row className="justify-content-md-center">
               <Col md={8}>

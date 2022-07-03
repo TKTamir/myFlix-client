@@ -9,7 +9,7 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
 
     return (
-      <Container className="movieCardContainer fluid">
+      <Container fluid className="movieCardContainer">
         <Row>
           <Col>
             <CardGroup>

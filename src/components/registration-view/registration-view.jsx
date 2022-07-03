@@ -19,7 +19,7 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Container className="registerContainer fluid text-center my-3 mx-12">
+    <Container fluid className="registerContainer text-center my-3 mx-12">
       <Row>
         <Col>
           <CardGroup>
