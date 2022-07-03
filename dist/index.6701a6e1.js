@@ -38959,7 +38959,7 @@ class MovieView extends _reactDefault.default.Component {
                                 children: "Back"
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                className: "ml-2",
+                                className: "ml-2 my-2",
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 88
