@@ -73,8 +73,16 @@ the state of the `selectedMovie` *property to that movie*/
 
     return (
       <div className="main-view">
-        <Navbar bg="navColor" variant="dark" expand="lg">
-          <Container fluid></Container>
+        <Navbar bg="light" expand="lg">
+          <Container fluid>
+            <Navbar.Brand href="#home">AppforMovies</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Profile</Nav.Link>
+              <Nav.Link href="#update">Update Profile</Nav.Link>
+              <Nav.Link href="#logout">Logout</Nav.Link>
+            </Nav>
+          </Container>
         </Navbar>
         <Container fluid className="mainViewContainer">
           {selectedMovie ? (

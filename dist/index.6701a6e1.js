@@ -25491,21 +25491,76 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
-                    bg: "navColor",
-                    variant: "dark",
+                    bg: "light",
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 76
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
                         fluid: true,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 77
                         },
-                        __self: this
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
+                                href: "#home",
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 78
+                                },
+                                __self: this,
+                                children: "AppforMovies"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Toggle, {
+                                "aria-controls": "basic-navbar-nav",
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 79
+                                },
+                                __self: this
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
+                                className: "me-auto",
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 80
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: "#home",
+                                        __source: {
+                                            fileName: "src/components/main-view/main-view.jsx",
+                                            lineNumber: 81
+                                        },
+                                        __self: this,
+                                        children: "Profile"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: "#update",
+                                        __source: {
+                                            fileName: "src/components/main-view/main-view.jsx",
+                                            lineNumber: 82
+                                        },
+                                        __self: this,
+                                        children: "Update Profile"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: "#logout",
+                                        __source: {
+                                            fileName: "src/components/main-view/main-view.jsx",
+                                            lineNumber: 83
+                                        },
+                                        __self: this,
+                                        children: "Logout"
+                                    })
+                                ]
+                            })
+                        ]
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
@@ -25513,21 +25568,21 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                     className: "mainViewContainer",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 79
+                        lineNumber: 87
                     },
                     __self: this,
                     children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                         className: "justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 81
+                            lineNumber: 89
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                             md: 8,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 82
+                                lineNumber: 90
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25537,7 +25592,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 83
+                                    lineNumber: 91
                                 },
                                 __self: this
                             })
@@ -25546,7 +25601,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                         className: "justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 92
+                            lineNumber: 100
                         },
                         __self: this,
                         children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
@@ -25555,7 +25610,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 sm: 6,
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 94
+                                    lineNumber: 102
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25565,7 +25620,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 95
+                                        lineNumber: 103
                                     },
                                     __self: this
                                 }, movie._id)
