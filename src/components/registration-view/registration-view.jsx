@@ -19,13 +19,13 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Container className="registerContainer">
+    <Container className="registerContainer fluid text-center my-3 mx-12">
       <Row>
         <Col>
           <CardGroup>
             <Card>
               <Card.Body>
-                <Card.Title>Please Register</Card.Title>
+                <Card.Title className="text-center">Please Register</Card.Title>
                 <Form>
                   <Form.Group className="mb-3" controlId="'formBasicUsername'">
                     <Form.Label>

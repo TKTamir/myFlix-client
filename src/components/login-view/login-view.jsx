@@ -16,7 +16,7 @@ export function LoginView(props) {
   };
 
   return (
-    <Container className="loginContainer">
+    <Container className="loginContainer fluid my-3 mx-12 ">
       <Row>
         <Col>
           <CardGroup>
