@@ -1,15 +1,20 @@
-
-
+.movieCard {
+  font-weight: 500;
+}
+.label {
+  font-weight: 700;
+  color: #123c69;
+}
 
 
 
 body, html {
-  background: #AC3B61;
+  background: #ae1d33;
 }
 
 .app-container {
   width: 100%;
-  background: #AC3B61;
+  background: #ae1d33;
 }
 
 .movieViewContainer {
