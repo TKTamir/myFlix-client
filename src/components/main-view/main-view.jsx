@@ -73,8 +73,8 @@ the state of the `selectedMovie` *property to that movie*/
 
     return (
       <Container className="mainViewContainer">
-        <Row className="main-view justify-content-md-center">
-          {selectedMovie ? (
+        {selectedMovie ? (
+          <Row className="main-view justify-content-md-center">
             <Col md={8}>
               <MovieView
                 movie={selectedMovie}
@@ -83,9 +83,11 @@ the state of the `selectedMovie` *property to that movie*/
                 }}
               />
             </Col>
-          ) : (
-            movies.map((movie) => (
-              <Col md={3}>
+          </Row>
+        ) : (
+          <Row className="justify-content-md-center">
+            {movies.map((movie) => (
+              <Col lg={3} md={4} sm={6}>
                 <MovieCard
                   key={movie._id}
                   movie={movie}
@@ -94,9 +96,9 @@ the state of the `selectedMovie` *property to that movie*/
                   }}
                 />
               </Col>
-            ))
-          )}
-        </Row>
+            ))}
+          </Row>
+        )}
       </Container>
     );
   }
