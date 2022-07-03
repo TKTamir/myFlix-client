@@ -16,25 +16,38 @@ export function LoginView(props) {
   };
 
   return (
-    <Container>
+    <Container className="loginContainer">
       <Row>
         <Col>
           <CardGroup>
             <Card>
-              <Form>
-                <Form.Group controlId="formUserName">
-                  <Form.Label>Username:</Form.Label>
-                  <Form.Control type="text" onChange={(e) => setUsername(e.target.value)} />
-                </Form.Group>
+              <Card.Body className="mt-3 ">
+                <Card.Title>Welcome to MyFlix</Card.Title>
+                <Form>
+                  <Form.Group controlId="formUserName">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      onChange={(e) => setUsername(e.target.value)}
+                      required
+                      placeholder="Enter Username"
+                    />
+                  </Form.Group>
 
-                <Form.Group controlId="formPassword">
-                  <Form.Label>Password:</Form.Label>
-                  <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} />
-                </Form.Group>
-                <Button variant="primary" type="submit" onClick={handleSubmit}>
-                  Submit
-                </Button>
-              </Form>
+                  <Form.Group controlId="formPassword">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control
+                      type="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      placeholder="Enter Password"
+                    />
+                  </Form.Group>
+                  <Button className="mt-3" variant="primary" type="submit" onClick={handleSubmit}>
+                    Submit
+                  </Button>
+                </Form>
+              </Card.Body>
             </Card>
           </CardGroup>
         </Col>
