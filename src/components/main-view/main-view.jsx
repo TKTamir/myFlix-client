@@ -73,31 +73,30 @@ the state of the `selectedMovie` *property to that movie*/
 
     return (
       <Container>
-        <div className="main-view">
-          {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
+        <Row className="main-view justify-content-md-center">
           {selectedMovie ? (
-            <Row>
-              <Col>
-                <MovieView
-                  movie={selectedMovie}
-                  onBackClick={(newSelectedMovie) => {
+            <Col md={8}>
+              <MovieView
+                movie={selectedMovie}
+                onBackClick={(newSelectedMovie) => {
+                  this.setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
+          ) : (
+            movies.map((movie) => (
+              <Col md={3}>
+                <MovieCard
+                  key={movie._id}
+                  movie={movie}
+                  onMovieClick={(newSelectedMovie) => {
                     this.setSelectedMovie(newSelectedMovie);
                   }}
                 />
               </Col>
-            </Row>
-          ) : (
-            movies.map((movie) => (
-              <MovieCard
-                key={movie._id}
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  this.setSelectedMovie(newSelectedMovie);
-                }}
-              />
             ))
           )}
-        </div>
+        </Row>
       </Container>
     );
   }
