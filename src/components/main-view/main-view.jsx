@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -74,7 +72,7 @@ the state of the `selectedMovie` *property to that movie*/
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <Container>
+      <Container className="mainViewContainer">
         <Row className="main-view justify-content-md-center">
           {selectedMovie ? (
             <Col md={8}>
