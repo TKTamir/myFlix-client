@@ -33,18 +33,21 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     /* Send a request to the server for authentication */
-    axios
-      .post('https://appformovies.herokuapp.com/login', {
-        Username: username,
-        Password: password,
-      })
-      .then((response) => {
-        const data = response.data;
-        props.onLoggedIn(data);
-      })
-      .catch((e) => {
-        console.log('No such user');
-      });
+    const isReq = validate();
+    if (isReq) {
+      axios
+        .post('https://appformovies.herokuapp.com/login', {
+          Username: username,
+          Password: password,
+        })
+        .then((response) => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch((e) => {
+          console.log('No such user');
+        });
+    }
   };
 
   return (
