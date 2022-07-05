@@ -16,7 +16,6 @@ export function RegistrationView(props) {
     birthdateErr: '',
   });
 
-  setValues({ ...values, usernameErr: 'Email required' });
   const validate = () => {
     let isReq = true;
     if (!username) {
