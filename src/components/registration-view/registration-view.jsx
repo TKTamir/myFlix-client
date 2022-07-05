@@ -100,8 +100,8 @@ export function RegistrationView(props) {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Enter Username"
-                      required
                       minLength="4"
+                      required
                     />
                     {values.usernameErr && <p>{values.usernameErr}</p>}
                   </Form.Group>
@@ -112,8 +112,8 @@ export function RegistrationView(props) {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter Password"
-                      required
                       minLength="8"
+                      required
                     />
                     {values.passwordErr && <p>{values.passwordErr}</p>}
                   </Form.Group>

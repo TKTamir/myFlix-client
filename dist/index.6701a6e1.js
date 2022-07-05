@@ -42413,8 +42413,8 @@ function LoginView(props) {
                                                         type: "text",
                                                         onChange: (e)=>setUsername(e.target.value)
                                                         ,
-                                                        required: true,
                                                         placeholder: "Enter Username",
+                                                        required: true,
                                                         __source: {
                                                             fileName: "src/components/login-view/login-view.jsx",
                                                             lineNumber: 72
@@ -42451,8 +42451,8 @@ function LoginView(props) {
                                                         type: "password",
                                                         onChange: (e)=>setPassword(e.target.value)
                                                         ,
-                                                        required: true,
                                                         placeholder: "Enter Password",
+                                                        required: true,
                                                         __source: {
                                                             fileName: "src/components/login-view/login-view.jsx",
                                                             lineNumber: 83
@@ -42745,8 +42745,8 @@ function RegistrationView(props) {
                                                         onChange: (e)=>setUsername(e.target.value)
                                                         ,
                                                         placeholder: "Enter Username",
-                                                        required: true,
                                                         minLength: "4",
+                                                        required: true,
                                                         __source: {
                                                             fileName: "src/components/registration-view/registration-view.jsx",
                                                             lineNumber: 98
@@ -42786,8 +42786,8 @@ function RegistrationView(props) {
                                                         onChange: (e)=>setPassword(e.target.value)
                                                         ,
                                                         placeholder: "Enter Password",
-                                                        required: true,
                                                         minLength: "8",
+                                                        required: true,
                                                         __source: {
                                                             fileName: "src/components/registration-view/registration-view.jsx",
                                                             lineNumber: 110
