@@ -42261,7 +42261,7 @@ function LoginView(props) {
             setPasswordErr('Password Required');
             isReq = false;
         } else if (password.length < 6) {
-            setPassword('Password must be 6 characters long');
+            setPasswordErr('Password must be 6 characters long');
             isReq = false;
         }
         return isReq;
@@ -42530,15 +42530,18 @@ function RegistrationView(props) {
     const [email, setEmail] = _react.useState('');
     const [birthdate, setBirthdate] = _react.useState('');
     const [values, setValues] = _react.useState({
-        nameErr: '',
         usernameErr: '',
         passwordErr: '',
-        emailErr: ''
+        emailErr: '',
+        birthdateErr: ''
     });
     const validate = ()=>{
         let isReq = true;
         if (!username) {
-            setUsernameErr('Username Required');
+            setValues({
+                ...values,
+                usernameErr: 'Username Required'
+            });
             isReq = false;
         } else if (username.length < 2) {
             setUsernameErr('Username must be 2 characters long');
@@ -42834,7 +42837,7 @@ function RegistrationView(props) {
         ]
     }));
 }
-_s(RegistrationView, "PLAHBUpy7wgpSRRq1xQZ/Fmy440=");
+_s(RegistrationView, "4YW3ZQW61yoK0MiCGqDYMNaK8a4=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
     onRegistration: _propTypesDefault.default.func.isRequired
