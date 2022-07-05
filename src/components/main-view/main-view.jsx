@@ -34,6 +34,22 @@ export class MainView extends React.Component {
       });
   }
 
+  getMovies(token) {
+    axios
+      .get('YOUR_API_URL/movies', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   /*When a movie is clicked, this function is invoked and updates 
 the state of the `selectedMovie` *property to that movie*/
 
