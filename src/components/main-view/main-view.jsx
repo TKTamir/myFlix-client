@@ -22,21 +22,18 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get('https://appformovies.herokuapp.com/movies')
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user'),
       });
+      this.getMovies(accessToken);
+    }
   }
 
   getMovies(token) {
     axios
-      .get('YOUR_API_URL/movies', {
+      .get('https://appformovies.herokuapp.com/movies', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
