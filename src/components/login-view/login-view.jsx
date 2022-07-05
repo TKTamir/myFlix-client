@@ -77,6 +77,7 @@ export function LoginView(props) {
                       required
                       placeholder="Enter Username"
                     />
+                    {usernameErr && <p>{usernameErr}</p>}
                   </Form.Group>
 
                   <Form.Group controlId="formPassword">
@@ -87,6 +88,7 @@ export function LoginView(props) {
                       required
                       placeholder="Enter Password"
                     />
+                    {passwordErr && <p>{passwordErr}</p>}
                   </Form.Group>
                   <Button className="mt-3" variant="primary" type="submit" onClick={handleSubmit}>
                     Submit

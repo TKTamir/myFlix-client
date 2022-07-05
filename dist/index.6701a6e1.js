@@ -42422,6 +42422,14 @@ function LoginView(props) {
                                                             lineNumber: 74
                                                         },
                                                         __self: this
+                                                    }),
+                                                    usernameErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                                        __source: {
+                                                            fileName: "src/components/login-view/login-view.jsx",
+                                                            lineNumber: 80
+                                                        },
+                                                        __self: this,
+                                                        children: usernameErr
                                                     })
                                                 ]
                                             }),
@@ -42429,14 +42437,14 @@ function LoginView(props) {
                                                 controlId: "formPassword",
                                                 __source: {
                                                     fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 82
+                                                    lineNumber: 83
                                                 },
                                                 __self: this,
                                                 children: [
                                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                                         __source: {
                                                             fileName: "src/components/login-view/login-view.jsx",
-                                                            lineNumber: 83
+                                                            lineNumber: 84
                                                         },
                                                         __self: this,
                                                         children: "Password:"
@@ -42449,9 +42457,17 @@ function LoginView(props) {
                                                         placeholder: "Enter Password",
                                                         __source: {
                                                             fileName: "src/components/login-view/login-view.jsx",
-                                                            lineNumber: 84
+                                                            lineNumber: 85
                                                         },
                                                         __self: this
+                                                    }),
+                                                    passwordErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                                        __source: {
+                                                            fileName: "src/components/login-view/login-view.jsx",
+                                                            lineNumber: 91
+                                                        },
+                                                        __self: this,
+                                                        children: passwordErr
                                                     })
                                                 ]
                                             }),
@@ -42462,7 +42478,7 @@ function LoginView(props) {
                                                 onClick: handleSubmit,
                                                 __source: {
                                                     fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 91
+                                                    lineNumber: 93
                                                 },
                                                 __self: this,
                                                 children: "Submit"
