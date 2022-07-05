@@ -94,55 +94,50 @@ export function RegistrationView(props) {
                 <Card.Title className="text-center">Please Register</Card.Title>
                 <Form>
                   <Form.Group className="mb-3" controlId="'formBasicUsername'">
-                    <Form.Label>
-                      Username:
-                      <Form.Control
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter Username"
-                        required
-                        minLength="4"
-                      />
-                    </Form.Label>
+                    <Form.Label>Username: </Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="Enter Username"
+                      required
+                      minLength="4"
+                    />
+                    {values.usernameErr && <p>{values.usernameErr}</p>}
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>
-                      {' '}
-                      Password:
-                      <Form.Control
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter Password"
-                        required
-                        minLength="8"
-                      />
-                    </Form.Label>
+                    <Form.Label> Password:</Form.Label>
+                    <Form.Control
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter Password"
+                      required
+                      minLength="8"
+                    />
+                    {values.passwordErr && <p>{values.passwordErr}</p>}
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>
-                      Email:
-                      <Form.Control
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="example@email.com"
-                        required
-                      />
-                    </Form.Label>
+                    <Form.Label>Email: </Form.Label>
+                    <Form.Control
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="example@email.com"
+                      required
+                    />
+                    {values.emailErr && <p>{values.emailErr}</p>}
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicBirthday">
-                    <Form.Label>
-                      Birthdate:
-                      <Form.Control
-                        type="date"
-                        value={birthdate}
-                        onChange={(e) => setBirthdate(e.target.value)}
-                        placeholder="30.01.1990"
-                        required
-                      />
-                    </Form.Label>
+                    <Form.Label>Birthdate: </Form.Label>
+                    <Form.Control
+                      type="date"
+                      value={birthdate}
+                      onChange={(e) => setBirthdate(e.target.value)}
+                      placeholder="30.01.1990"
+                      required
+                    />
+                    {values.birthdateErr && <p>{values.birthdateErr}</p>}
                   </Form.Group>
                   <Button type="submit" onClick={handleSubmit}>
                     Register
