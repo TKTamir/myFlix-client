@@ -25449,6 +25449,14 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
+    // Logout function
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
     /*When a movie is clicked, this function is invoked and updates 
 the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movie) {
         this.setState({
@@ -25477,7 +25485,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 83
+                lineNumber: 91
             },
             __self: this
         }));
@@ -25487,7 +25495,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 87
+                lineNumber: 95
             },
             __self: this
         }));
@@ -25496,7 +25504,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 90
+                lineNumber: 98
             },
             __self: this
         }));
@@ -25504,7 +25512,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 93
+                lineNumber: 101
             },
             __self: this,
             children: [
@@ -25513,14 +25521,14 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 94
+                        lineNumber: 102
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
                         fluid: true,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 95
+                            lineNumber: 103
                         },
                         __self: this,
                         children: [
@@ -25528,7 +25536,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 href: "#home",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 96
+                                    lineNumber: 104
                                 },
                                 __self: this,
                                 children: "AppforMovies"
@@ -25537,7 +25545,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 "aria-controls": "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 97
+                                    lineNumber: 105
                                 },
                                 __self: this
                             }),
@@ -25545,14 +25553,14 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 id: "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 98
+                                    lineNumber: 106
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                                     className: "me-auto",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 99
+                                        lineNumber: 107
                                     },
                                     __self: this,
                                     children: [
@@ -25560,7 +25568,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                             href: "#profile",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 100
+                                                lineNumber: 108
                                             },
                                             __self: this,
                                             children: "Profile"
@@ -25569,16 +25577,18 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                             href: "#update",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 101
+                                                lineNumber: 109
                                             },
                                             __self: this,
                                             children: "Update Profile"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                            href: "#logout",
+                                            onClick: ()=>{
+                                                this.onLoggedOut();
+                                            },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 102
+                                                lineNumber: 110
                                             },
                                             __self: this,
                                             children: "Logout"
@@ -25594,21 +25604,21 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                     className: "mainViewContainer",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 107
+                        lineNumber: 121
                     },
                     __self: this,
                     children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                         className: "justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 109
+                            lineNumber: 123
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                             md: 8,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 110
+                                lineNumber: 124
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25618,7 +25628,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 111
+                                    lineNumber: 125
                                 },
                                 __self: this
                             })
@@ -25627,7 +25637,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                         className: "justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 120
+                            lineNumber: 134
                         },
                         __self: this,
                         children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
@@ -25636,7 +25646,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                 sm: 6,
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 122
+                                    lineNumber: 136
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25646,7 +25656,7 @@ the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movi
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 123
+                                        lineNumber: 137
                                     },
                                     __self: this
                                 }, movie._id)

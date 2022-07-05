@@ -47,6 +47,14 @@ export class MainView extends React.Component {
       });
   }
 
+  // Logout function
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null,
+    });
+  }
   /*When a movie is clicked, this function is invoked and updates 
 the state of the `selectedMovie` *property to that movie*/
 
@@ -99,7 +107,13 @@ the state of the `selectedMovie` *property to that movie*/
               <Nav className="me-auto">
                 <Nav.Link href="#profile">Profile</Nav.Link>
                 <Nav.Link href="#update">Update Profile</Nav.Link>
-                <Nav.Link href="#logout">Logout</Nav.Link>
+                <Nav.Link
+                  onClick={() => {
+                    this.onLoggedOut();
+                  }}
+                >
+                  Logout
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
