@@ -10,33 +10,38 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthdate, setBirthdate] = useState('');
   const [values, setValues] = useState({
-    nameErr: '',
     usernameErr: '',
     passwordErr: '',
     emailErr: '',
+    birthdateErr: '',
   });
 
+  setValues({ ...values, usernameErr: 'Email required' });
   const validate = () => {
     let isReq = true;
     if (!username) {
-      setUsernameErr('Username Required');
+      setValues({ ...values, usernameErr: 'Username Required' });
       isReq = false;
     } else if (username.length < 2) {
-      setUsernameErr('Username must be 2 characters long');
+      setValues({ ...values, usernameErr: 'Username must be 2 characters long' });
       isReq = false;
     }
     if (!password) {
-      setPasswordErr('Password Required');
+      setValues({ ...values, passwordErr: 'Password Required' });
       isReq = false;
     } else if (password.length < 6) {
-      setPassword('Password must be 6 characters long');
+      setValues({ ...values, passwordErr: 'Password must be 6 characters long' });
       isReq = false;
     }
     if (!email) {
-      setEmailErr('Email required');
+      setValues({ ...values, emailErr: 'Email required' });
       isReq = false;
     } else if (email.value.indexOf('@') === -1) {
-      setEmailErr('Email must contain @');
+      setValues({ ...values, emailErr: 'Email must contain @' });
+      isReq = false;
+    }
+    if (!birthdate) {
+      setValues({ ...values, birthdateErr: 'Birthdate is required' });
       isReq = false;
     }
 
