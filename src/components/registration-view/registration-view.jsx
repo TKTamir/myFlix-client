@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+
 import { Form, Button, Card, CardGroup, Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
 
 import './registration-view.scss';
@@ -35,7 +37,7 @@ export function RegistrationView(props) {
     if (!email) {
       setValues({ ...values, emailErr: 'Email required' });
       isReq = false;
-    } else if (email.value.indexOf('@') === -1) {
+    } else if (email.indexOf('@') === -1) {
       setValues({ ...values, emailErr: 'Email must contain @' });
       isReq = false;
     }
