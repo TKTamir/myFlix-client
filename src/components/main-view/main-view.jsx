@@ -43,12 +43,17 @@ the state of the `selectedMovie` *property to that movie*/
     });
   }
 
-  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
+  /* When a user logs in, the props onLoggedIn(data) is passed to the LoginView and triggers the function onLoggedIn(authData) in the MainView. This updates the state with the logged in authData.*/
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user,
+      user: authData.user.Username,
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
 
   // When a user successfully register, this function updates the user properties
