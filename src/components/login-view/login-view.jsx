@@ -7,10 +7,8 @@ import './login-view.scss';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
-  const [emailErr, setEmailErr] = useState('');
 
   const validate = () => {
     let isReq = true;
