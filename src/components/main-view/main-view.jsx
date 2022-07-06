@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { Menubar } from '../navbar/navbar';
