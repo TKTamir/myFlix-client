@@ -25425,20 +25425,6 @@ class MainView extends _reactDefault.default.Component {
             user: null
         };
     }
-    getMovies(token) {
-        _axiosDefault.default.get('https://appformovies.herokuapp.com/movies', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            // Assign the result to the state
-            this.setState({
-                movies: response.data
-            });
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
@@ -25457,21 +25443,26 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+    getMovies(token) {
+        _axiosDefault.default.get('https://appformovies.herokuapp.com/movies', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            // Assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     render() {
         const { movies , user  } = this.state;
-        // Before the movies have been loaded
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 68
-            },
-            __self: this
-        }));
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 71
+                lineNumber: 68
             },
             __self: this,
             children: [
@@ -25479,21 +25470,21 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 72
+                        lineNumber: 69
                     },
                     __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 73
+                        lineNumber: 70
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                         className: "main-view justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 74
+                            lineNumber: 71
                         },
                         __self: this,
                         children: [
@@ -25509,9 +25500,9 @@ class MainView extends _reactDefault.default.Component {
                                         })
                                     });
                                     //Before movies are loaded
-                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                         className: "main-view"
-                                    })); //Might need to change row to div
+                                    }));
                                     return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                             md: 3,
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25522,7 +25513,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 75
+                                    lineNumber: 72
                                 },
                                 __self: this
                             }),
@@ -25541,7 +25532,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 93
+                                    lineNumber: 90
                                 },
                                 __self: this
                             }),
@@ -25559,14 +25550,14 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 104
+                                    lineNumber: 101
                                 },
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                                 path: "/genres/:name",
                                 render: ({ match , history  })=>{
-                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                         className: "main-view"
                                     }));
                                     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
@@ -25580,14 +25571,14 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 117
+                                    lineNumber: 114
                                 },
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                                 path: "/directors/:name",
                                 render: ({ match , history  })=>{
-                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                         className: "main-view"
                                     }));
                                     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
@@ -25601,7 +25592,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 131
+                                    lineNumber: 128
                                 },
                                 __self: this
                             }),
@@ -25621,7 +25612,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 145
+                                    lineNumber: 142
                                 },
                                 __self: this
                             }),
@@ -25640,7 +25631,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 156
+                                    lineNumber: 153
                                 },
                                 __self: this
                             })
@@ -45236,6 +45227,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
+var _reactRouterDom = require("react-router-dom");
 function Menubar({ user  }) {
     const onLoggedOut = ()=>{
         localStorage.clear();
@@ -45254,13 +45246,13 @@ function Menubar({ user  }) {
         variant: "dark",
         __source: {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 20
+            lineNumber: 21
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/navbar/navbar.jsx",
-                lineNumber: 21
+                lineNumber: 22
             },
             __self: this,
             children: [
@@ -45269,7 +45261,7 @@ function Menubar({ user  }) {
                     href: "/",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 22
+                        lineNumber: 23
                     },
                     __self: this,
                     children: "AppForMovies"
@@ -45278,7 +45270,7 @@ function Menubar({ user  }) {
                     "aria-controls": "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 25
+                        lineNumber: 26
                     },
                     __self: this
                 }),
@@ -45286,22 +45278,22 @@ function Menubar({ user  }) {
                     id: "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 26
+                        lineNumber: 27
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                         className: "ml-auto",
                         __source: {
                             fileName: "src/components/navbar/navbar.jsx",
-                            lineNumber: 27
+                            lineNumber: 28
                         },
                         __self: this,
                         children: [
-                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.link, {
+                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 href: `/users/${user}`,
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 28
+                                    lineNumber: 29
                                 },
                                 __self: this,
                                 children: user
@@ -45313,7 +45305,7 @@ function Menubar({ user  }) {
                                 },
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 30
+                                    lineNumber: 32
                                 },
                                 __self: this,
                                 children: "Logout"
@@ -45322,7 +45314,7 @@ function Menubar({ user  }) {
                                 href: "/",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 39
+                                    lineNumber: 41
                                 },
                                 __self: this,
                                 children: "Sign-in"
@@ -45331,7 +45323,7 @@ function Menubar({ user  }) {
                                 href: "/register",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 40
+                                    lineNumber: 42
                                 },
                                 __self: this,
                                 children: "Sign-up"
@@ -45352,6 +45344,6 @@ $RefreshReg$(_c, "Menubar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ"}],"jUTZ8":[function() {},{}]},["dfB0U","hLMRn","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react-router-dom":"cpyQW"}],"jUTZ8":[function() {},{}]},["dfB0U","hLMRn","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map

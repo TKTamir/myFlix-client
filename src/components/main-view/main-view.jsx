@@ -22,22 +22,6 @@ export class MainView extends React.Component {
     };
   }
 
-  getMovies(token) {
-    axios
-      .get('https://appformovies.herokuapp.com/movies', {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -61,11 +45,24 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  getMovies(token) {
+    axios
+      .get('https://appformovies.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movies, user } = this.state;
-
-    // Before the movies have been loaded
-    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <Router>
@@ -82,7 +79,7 @@ export class MainView extends React.Component {
                   <LoginView movies={movies} onLoggedIn={(user) => this.onLoggedIn(user)} />
                 </Col>;
                 //Before movies are loaded
-                if (movies.length === 0) return <Row className="main-view" />; //Might need to change row to div
+                if (movies.length === 0) return <div className="main-view" />;
                 return movies.map((m) => (
                   <Col md={3} key={m._id}>
                     <MovieCard movie={m} />
@@ -117,7 +114,7 @@ export class MainView extends React.Component {
             <Route
               path="/genres/:name"
               render={({ match, history }) => {
-                if (movies.length === 0) return <Row className="main-view" />;
+                if (movies.length === 0) return <div className="main-view" />;
                 return (
                   <Col md={8}>
                     <GenreView
@@ -131,7 +128,7 @@ export class MainView extends React.Component {
             <Route
               path="/directors/:name"
               render={({ match, history }) => {
-                if (movies.length === 0) return <Row className="main-view" />;
+                if (movies.length === 0) return <div className="main-view" />;
                 return (
                   <Col md={8}>
                     <DirectorView
