@@ -66,9 +66,8 @@ export function RegistrationView(props) {
           alert('Registration successful, you may now login');
           window.open('/', '_self'); // '_self' is necassary to the page to open in the current tab
         })
-        .catch((response) => {
-          console.error(response);
-          alert('unable to register');
+        .catch((e) => {
+          console.log('Error in registration process');
         });
     }
   };
