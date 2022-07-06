@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function Menubar({ user }) {
   const onLoggedOut = () => {
@@ -25,7 +26,8 @@ export function Menubar({ user }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            {isAuth() && <Nav.link href={`/users/${user}`}>{user}</Nav.link>}
+            {isAuth() && <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>}
+
             {isAuth() && (
               <Button
                 variant="link"
