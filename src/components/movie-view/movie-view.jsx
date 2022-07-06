@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, CardGroup, Container, Col, Row, Form } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
@@ -76,6 +78,13 @@ export class MovieView extends React.Component {
             <div>{' Description: ' + movie.Genre.Description}</div>
           </Col>
         </Row>
+        <Link to={`/directors/${movie.Director.Name}`}>
+          <Button variant="link">Director</Button>
+        </Link>
+
+        <Link to={`/genres/${movie.Genre.Name}`}>
+          <Button variant="link">Genre</Button>
+        </Link>
         <Row>
           <Col>
             <Button
