@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -12,23 +14,11 @@ import './main-view.scss';
 export class MainView extends React.Component {
   constructor() {
     super();
-    // Initial state is set to null
+
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null,
-      registered: null,
     };
-  }
-
-  componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user'),
-      });
-      this.getMovies(accessToken);
-    }
   }
 
   getMovies(token) {
@@ -47,21 +37,14 @@ export class MainView extends React.Component {
       });
   }
 
-  // Logout function
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null,
-    });
-  }
-  /*When a movie is clicked, this function is invoked and updates 
-the state of the `selectedMovie` *property to that movie*/
-
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie,
-    });
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user'),
+      });
+      this.getMovies(accessToken);
+    }
   }
 
   /* When a user logs in, the props onLoggedIn(data) is passed to the LoginView and triggers the function onLoggedIn(authData) in the MainView. This updates the state with the logged in authData.*/
@@ -77,76 +60,47 @@ the state of the `selectedMovie` *property to that movie*/
     this.getMovies(authData.token);
   }
 
-  // When a user successfully register, this function updates the user properties
-  onRegistration(registered) {
-    this.setState({
-      registered,
-    });
-  }
-
   render() {
-    const { movies, selectedMovie, user, registered } = this.state;
+    const { movies, user } = this.state;
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-
-    // If the user is on register, show registration view and register
-    if (!registered)
-      return <RegistrationView onRegistration={(register) => this.onRegistration(register)} />;
-
+    if (!user)
+      return (
+        <Row>
+          <Col>
+            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+          </Col>
+        </Row>
+      );
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <div className="main-view">
-        <Navbar bg="light" expand="lg">
-          <Container fluid>
-            <Navbar.Brand href="#home">AppforMovies</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="#profile">Profile</Nav.Link>
-                <Nav.Link href="#update">Update Profile</Nav.Link>
-                <Nav.Link
-                  onClick={() => {
-                    this.onLoggedOut();
-                  }}
-                >
-                  Logout
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-        <Container fluid className="mainViewContainer">
-          {selectedMovie ? (
-            <Row className="justify-content-md-center">
-              <Col md={8}>
-                <MovieView
-                  movie={selectedMovie}
-                  onBackClick={(newSelectedMovie) => {
-                    this.setSelectedMovie(newSelectedMovie);
-                  }}
-                />
-              </Col>
-            </Row>
-          ) : (
-            <Row className="justify-content-md-center">
-              {movies.map((movie) => (
-                <Col lg={3} md={4} sm={6}>
-                  <MovieCard
-                    key={movie._id}
-                    movie={movie}
-                    onMovieClick={(newSelectedMovie) => {
-                      this.setSelectedMovie(newSelectedMovie);
-                    }}
-                  />
+      <Router>
+        <Row className="main-view justify-content-md-center">
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return movies.map((m) => (
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={m} />
                 </Col>
-              ))}
-            </Row>
-          )}
-        </Container>
-      </div>
+              ));
+            }}
+          />
+          <Route
+            path="/movies/:movieId"
+            render={({ match }) => {
+              return (
+                <Col md={8}>
+                  <MovieView movie={movies.find((m) => m._id === match.params.movieId)} />
+                </Col>
+              );
+            }}
+          />
+        </Row>
+      </Router>
     );
   }
 }
