@@ -45331,7 +45331,7 @@ function Menubar({ user  }) {
                                     lineNumber: 41
                                 },
                                 __self: this,
-                                children: "Sign-in"
+                                children: "Login"
                             }),
                             !isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 href: "/register",
@@ -45340,7 +45340,7 @@ function Menubar({ user  }) {
                                     lineNumber: 42
                                 },
                                 __self: this,
-                                children: "Sign-up"
+                                children: "Register"
                             })
                         ]
                     })
