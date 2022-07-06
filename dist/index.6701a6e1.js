@@ -41211,7 +41211,7 @@ class MovieView extends _reactDefault.default.Component {
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                 onClick: ()=>{
-                                    onBackClick(null);
+                                    onBackClick();
                                 },
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",

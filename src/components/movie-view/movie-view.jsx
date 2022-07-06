@@ -89,7 +89,7 @@ export class MovieView extends React.Component {
           <Col>
             <Button
               onClick={() => {
-                onBackClick(null);
+                onBackClick();
               }}
             >
               Back
