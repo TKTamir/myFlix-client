@@ -7,11 +7,11 @@ import UpdateUser from './update-user';
 import './profile-view.scss';
 import PropTypes from 'prop-types';
 
-export function ProfileView({ props }) {
+export function ProfileView(props) {
   const [user, setUser] = useState('');
   const currentUser = localStorage.getItem('');
   const token = localStorage.getItem('token');
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [FavoriteMovies, setFavoriteMovies] = useState([]);
 
   const getUser = () => {
     axios
@@ -42,6 +42,7 @@ export function ProfileView({ props }) {
             Password: password,
             Email: email,
             Birthdate: birthdate,
+            FavoriteMovies: FavoriteMovies,
           },
           {
             headers: { Authorization: `Bearer ${token}` },
