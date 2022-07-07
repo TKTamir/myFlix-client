@@ -27,7 +27,7 @@ export class DirectorView extends React.Component {
           </Row>
           <Button
             onClick={() => {
-              onBackClick(null);
+              onBackClick();
             }}
             variant="primary"
           >
