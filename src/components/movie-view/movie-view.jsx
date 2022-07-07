@@ -12,7 +12,7 @@ export class MovieView extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keyperess', this.keypressCallback);
+    document.addEventListener('keypress', this.keypressCallback);
   }
 
   render() {
@@ -111,4 +111,5 @@ MovieView.propTypes = {
     }),
     ImagePath: PropTypes.string,
   }).isRequired,
+  onBackClick: PropTypes.func.isRequired,
 };
