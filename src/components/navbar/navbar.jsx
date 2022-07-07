@@ -1,12 +1,16 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export function Menubar({ user }) {
-  const onLoggedOut = () => {
+  const handelLogOut = (e) => {
+    e.preventDefault();
     localStorage.clear();
     window.open('/', '_self');
+    props.onLoggedOut(user);
   };
+
   const isAuth = () => {
     if (typeof window == 'undefined') {
       return false;
@@ -29,12 +33,7 @@ export function Menubar({ user }) {
             {isAuth() && <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>}
 
             {isAuth() && (
-              <Button
-                variant="link"
-                onClick={() => {
-                  this.onLoggedOut();
-                }}
-              >
+              <Button variant="link" onClick={handelLogOut}>
                 Logout
               </Button>
             )}
