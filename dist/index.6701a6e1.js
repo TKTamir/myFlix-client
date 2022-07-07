@@ -45602,110 +45602,110 @@ function ProfileView({ movies , onUpdatedUserInfo  }) {
     const [user, setUser] = _react.useState();
     const currentUser = localStorage.getItem('user');
     const token = localStorage.getItem('token');
-    const [movies, setMovies] = _react.useState();
     const [favoriteMovies, setFavoriteMovies] = _react.useState([]);
-}
-_s(ProfileView, "9VDY1UWHCnfUHalL8qCq/URUdSo=");
-_c = ProfileView;
-const favoriteMovieList = movie.filter((movies)=>{
-});
-const getUser = ()=>{
-    _axiosDefault.default.get(`'https://appformovies.herokuapp.com/users/${currentUser}}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }).then((response)=>{
-        setUser(response.data);
-        setFavoriteMovies(response.data.FavoriteMovies);
-    }).catch((error)=>console.error(error)
-    );
-};
-_react.useEffect(()=>{
-    getUser();
-});
-const handleSubmit = (e)=>{
-    e.preventDefault();
-    /* Send a request to the server for authentication */ const isReq = validate();
-    if (isReq) _axiosDefault.default.put(`https://appformovies.herokuapp.com/users/${user.Username}`, {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthdate: birthdate
-    }, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }).then((response)=>{
-        console.log(response.data);
-        alert('Profile was successfully updated.');
-        window.open('/users/:username', '_self');
-    }).catch((error)=>{
-        console.error(error);
-        alert('It seems something went wrong');
+    const favoriteMovieList = movies.filter((movies1)=>{
     });
-};
-const removeFavorite = (movieId)=>{
-    _axiosDefault.default.delete(`https://appformovies.herokuapp.com/users/${currentUser}/movies/${movieId}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }).then(()=>{
-        alert('The movie has been successfuly removed.');
-        window.open('/users/:username', '_self');
-    }).catch((error)=>console.error(error)
-    );
-};
-const handleUpdate = (e)=>{
-    _axiosDefault.default.delete(`https://movime-api.herokuapp.com/users/${currentUser}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }).then(()=>{
-        alert(`The account ${user.Username} has been deleted.`);
-        localStorage.clear();
-        window.open('/register', '_self');
-    }).catch((error)=>console.error(error)
-    );
-};
-_react.useEffect(()=>{
-});
+    const getUser = ()=>{
+        _axiosDefault.default.get(`'https://appformovies.herokuapp.com/users/${currentUser}}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            setUser(response.data);
+            setFavoriteMovies(response.data.FavoriteMovies);
+        }).catch((error)=>console.error(error)
+        );
+    };
+    _react.useEffect(()=>{
+        getUser();
+    });
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        /* Send a request to the server for authentication */ const isReq = validate();
+        if (isReq) _axiosDefault.default.put(`https://appformovies.herokuapp.com/users/${user.Username}`, {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthdate: birthdate
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response.data);
+            alert('Profile was successfully updated.');
+            window.open('/users/:username', '_self');
+        }).catch((error)=>{
+            console.error(error);
+            alert('It seems something went wrong');
+        });
+    };
+    const removeFavorite = (movieId)=>{
+        _axiosDefault.default.delete(`https://appformovies.herokuapp.com/users/${currentUser}/movies/${movieId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(()=>{
+            alert('The movie has been successfuly removed.');
+            window.open('/users/:username', '_self');
+        }).catch((error)=>console.error(error)
+        );
+    };
+    const handleUpdate = (e)=>{
+        _axiosDefault.default.delete(`https://movime-api.herokuapp.com/users/${currentUser}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(()=>{
+            alert(`The account ${user.Username} has been deleted.`);
+            localStorage.clear();
+            window.open('/register', '_self');
+        }).catch((error)=>console.error(error)
+        );
+    };
+    _react.useEffect(()=>{
+    });
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+        __source: {
+            fileName: "src/components/profile-view/profile-view.jsx",
+            lineNumber: 91
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx(_userInfoDefault.default, {
+                name: user.Username,
+                email: user.Email,
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 92
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMoviesDefault.default, {
+                favoriteMovieList: favoriteMovieList,
+                removeFavorite: removeFavorite,
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 93
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
+                handleSubmit: handleSubmit,
+                handleUpdate: handleUpdate,
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 94
+                },
+                __self: this
+            })
+        ]
+    }));
+}
+_s(ProfileView, "4i4088jvn9I43IqEI9VhzH7T1B4=");
+_c = ProfileView;
 var _c;
-return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
-    __source: {
-        fileName: "src/components/profile-view/profile-view.jsx",
-        lineNumber: 93
-    },
-    __self: undefined,
-    children: [
-        /*#__PURE__*/ _jsxRuntime.jsx(_userInfoDefault.default, {
-            name: user.Username,
-            email: user.Email,
-            __source: {
-                fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 94
-            },
-            __self: undefined
-        }),
-        /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMoviesDefault.default, {
-            favoriteMovieList: favoriteMovieList,
-            removeFavorite: removeFavorite,
-            __source: {
-                fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 95
-            },
-            __self: undefined
-        }),
-        /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
-            handleSubmit: handleSubmit,
-            handleUpdate: handleUpdate,
-            __source: {
-                fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 96
-            },
-            __self: undefined
-        })
-    ]
-}));
+$RefreshReg$(_c, "ProfileView");
 
   $parcel$ReactRefreshHelpers$58c6.postlude(module);
 } finally {
