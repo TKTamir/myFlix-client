@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-function FavoriteMovies({ props }) {
+export function FavoriteMovies({ props }) {
   const { movies, favoriteMovies } = props;
 
   const favoriteMoviesId = favoriteMovies.map((m) => m._id);
 
   const favoriteMovieList = movies.filter((movies) => {
-    (m) => {
-      return favoriteMoviesId.includes(m._id);
+    (movies) => {
+      return favoriteMoviesId.includes(movies._id);
     };
   });
 
