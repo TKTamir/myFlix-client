@@ -6,6 +6,13 @@ import { Button, Container, Col, Row } from 'react-bootstrap';
 import './genre-view.scss';
 
 export class GenreView extends React.Component {
+  keypressCallback(event) {
+    console.log(event.key);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.keypressCallback);
+  }
   render() {
     const { genre, onBackClick } = this.props;
 
@@ -13,14 +20,13 @@ export class GenreView extends React.Component {
       <Container>
         <Row className="mt-3">
           <Col className="label">Genre:</Col>
-          <Col className="value">{genre.Genre.Name}</Col>
+          <Col className="value">{genre.Name}</Col>
         </Row>
         <Row className="mt-3">
           <Col className="label">Description:</Col>
-          <Col className="value">{genre.Genre.Name}</Col>
+          <Col className="value">{genre.Description}</Col>
         </Row>
         <Button
-          classname="mt-3"
           onClick={() => {
             onBackClick();
           }}

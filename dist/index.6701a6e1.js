@@ -40922,7 +40922,7 @@ class MovieView extends _reactDefault.default.Component {
         console.log(event.key);
     }
     componentDidMount() {
-        document.addEventListener('keyperess', this.keypressCallback);
+        document.addEventListener('keypress', this.keypressCallback);
     }
     render() {
         const { movie , onBackClick  } = this.props;
@@ -41288,7 +41288,8 @@ MovieView.propTypes = {
             Birth: _propTypesDefault.default.string.isRequired
         }),
         ImagePath: _propTypesDefault.default.string
-    }).isRequired
+    }).isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
 };
 
   $parcel$ReactRefreshHelpers$3741.postlude(module);
@@ -44595,7 +44596,7 @@ function LoginView(props) {
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    href: "#Register",
+                                    href: "/register",
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
                                         lineNumber: 61
@@ -44921,7 +44922,7 @@ function RegistrationView(props) {
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    href: "#login",
+                                    href: "/",
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.jsx",
                                         lineNumber: 83
@@ -45334,19 +45335,25 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _directorViewScss = require("./director-view.scss");
 class DirectorView extends _reactDefault.default.Component {
+    keypressCallback(event) {
+        console.log(event.key);
+    }
+    componentDidMount() {
+        document.addEventListener('keypress', this.keypressCallback);
+    }
     render() {
-        const { director , OnBackClick  } = this.props;
+        const { director , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             className: "director-view",
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 13
+                lineNumber: 21
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 14
+                    lineNumber: 22
                 },
                 __self: this,
                 children: [
@@ -45354,65 +45361,9 @@ class DirectorView extends _reactDefault.default.Component {
                         className: "movie-director",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 15
+                            lineNumber: 23
                         },
                         __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
-                        className: "mt-3",
-                        __source: {
-                            fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 16
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                className: "label",
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 17
-                                },
-                                __self: this,
-                                children: "Director: "
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                className: "value",
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 18
-                                },
-                                __self: this,
-                                children: director.Director.Name
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
-                        className: "mt-3",
-                        __source: {
-                            fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 20
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                className: "label",
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 21
-                                },
-                                __self: this,
-                                children: "Bio: "
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                className: "value",
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 22
-                                },
-                                __self: this,
-                                children: director.Director.Bio
-                            })
-                        ]
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                         className: "mt-3",
@@ -45429,7 +45380,7 @@ class DirectorView extends _reactDefault.default.Component {
                                     lineNumber: 25
                                 },
                                 __self: this,
-                                children: "Birth: "
+                                children: "Director: "
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                 className: "value",
@@ -45438,7 +45389,63 @@ class DirectorView extends _reactDefault.default.Component {
                                     lineNumber: 26
                                 },
                                 __self: this,
-                                children: director.Director.Birth
+                                children: director.Name
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
+                        className: "mt-3",
+                        __source: {
+                            fileName: "src/components/director-view/director-view.jsx",
+                            lineNumber: 28
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                className: "label",
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 29
+                                },
+                                __self: this,
+                                children: "Bio: "
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                className: "value",
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 30
+                                },
+                                __self: this,
+                                children: director.Bio
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
+                        className: "mt-3",
+                        __source: {
+                            fileName: "src/components/director-view/director-view.jsx",
+                            lineNumber: 32
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                className: "label",
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 33
+                                },
+                                __self: this,
+                                children: "Birth: "
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                className: "value",
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 34
+                                },
+                                __self: this,
+                                children: director.Birth
                             })
                         ]
                     }),
@@ -45446,10 +45453,9 @@ class DirectorView extends _reactDefault.default.Component {
                         onClick: ()=>{
                             onBackClick();
                         },
-                        variant: "primary",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 28
+                            lineNumber: 36
                         },
                         __self: this,
                         children: "Back"
@@ -45465,8 +45471,10 @@ DirectorView.propTypes = {
         Bio: _propTypesDefault.default.string.isRequired,
         Birth: _propTypesDefault.default.string.isRequired,
         Death: _propTypesDefault.default.string
-    }).isRequired
+    }).isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
 };
+exports.default = DirectorView;
 
   $parcel$ReactRefreshHelpers$f8cc.postlude(module);
 } finally {
@@ -45492,12 +45500,18 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _genreViewScss = require("./genre-view.scss");
 class GenreView extends _reactDefault.default.Component {
+    keypressCallback(event) {
+        console.log(event.key);
+    }
+    componentDidMount() {
+        document.addEventListener('keypress', this.keypressCallback);
+    }
     render() {
         const { genre , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 13
+                lineNumber: 20
             },
             __self: this,
             children: [
@@ -45505,7 +45519,7 @@ class GenreView extends _reactDefault.default.Component {
                     className: "mt-3",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 14
+                        lineNumber: 21
                     },
                     __self: this,
                     children: [
@@ -45513,7 +45527,7 @@ class GenreView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 15
+                                lineNumber: 22
                             },
                             __self: this,
                             children: "Genre:"
@@ -45522,10 +45536,10 @@ class GenreView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 16
+                                lineNumber: 23
                             },
                             __self: this,
-                            children: genre.Genre.Name
+                            children: genre.Name
                         })
                     ]
                 }),
@@ -45533,7 +45547,7 @@ class GenreView extends _reactDefault.default.Component {
                     className: "mt-3",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 18
+                        lineNumber: 25
                     },
                     __self: this,
                     children: [
@@ -45541,7 +45555,7 @@ class GenreView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 19
+                                lineNumber: 26
                             },
                             __self: this,
                             children: "Description:"
@@ -45550,22 +45564,21 @@ class GenreView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 20
+                                lineNumber: 27
                             },
                             __self: this,
-                            children: genre.Genre.Name
+                            children: genre.Description
                         })
                     ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                    classname: "mt-3",
                     onClick: ()=>{
                         onBackClick();
                     },
                     variant: "primary",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 22
+                        lineNumber: 29
                     },
                     __self: this,
                     children: "Back"
@@ -45613,8 +45626,8 @@ var _profileViewScss = require("./profile-view.scss");
 var _s = $RefreshSig$();
 function ProfileView({ props  }) {
     _s();
-    const [user, setUser] = _react.useState(props.user);
-    const currentUser = localStorage.getItem(props.movies);
+    const [username, setUser] = _react.useState(props.user);
+    const currentUser = localStorage.getItem(props.user);
     const token = localStorage.getItem('token');
     const getUser = ()=>{
         _axiosDefault.default.get(`'https://appformovies.herokuapp.com/users/${currentUser}}`, {
@@ -45713,7 +45726,7 @@ function ProfileView({ props  }) {
         ]
     }));
 }
-_s(ProfileView, "p3ua5+hZ42jZY+7bq8qRJgBMDzU=");
+_s(ProfileView, "tyUe+AcbRJjL0Szzv84WM8TJv6c=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");

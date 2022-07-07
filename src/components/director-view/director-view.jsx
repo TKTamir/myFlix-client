@@ -6,8 +6,16 @@ import { Button, Container, Col, Row } from 'react-bootstrap';
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
+  keypressCallback(event) {
+    console.log(event.key);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.keypressCallback);
+  }
+
   render() {
-    const { director, OnBackClick } = this.props;
+    const { director, onBackClick } = this.props;
 
     return (
       <Container className="director-view">
@@ -15,21 +23,20 @@ export class DirectorView extends React.Component {
           <Col className="movie-director"></Col>
           <Row className="mt-3">
             <Col className="label">Director: </Col>
-            <Col className="value">{director.Director.Name}</Col>
+            <Col className="value">{director.Name}</Col>
           </Row>
           <Row className="mt-3">
             <Col className="label">Bio: </Col>
-            <Col className="value">{director.Director.Bio}</Col>
+            <Col className="value">{director.Bio}</Col>
           </Row>
           <Row className="mt-3">
             <Col className="label">Birth: </Col>
-            <Col className="value">{director.Director.Birth}</Col>
+            <Col className="value">{director.Birth}</Col>
           </Row>
           <Button
             onClick={() => {
               onBackClick();
             }}
-            variant="primary"
           >
             Back
           </Button>
@@ -45,4 +52,6 @@ DirectorView.propTypes = {
     Birth: PropTypes.string.isRequired,
     Death: PropTypes.string,
   }).isRequired,
+  onBackClick: PropTypes.func.isRequired,
 };
+export default DirectorView;
