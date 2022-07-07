@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserInfo from './user-info';
 import axios from 'axios';
 
 import './profile-view.scss';
@@ -21,8 +22,7 @@ useEffect(() => {});
 
 return (
   <div>
-    <p>User: {user.Username}</p>
-    <p>Email: {user.Email}</p>
+    <UserInfo name={user.Username} email={user.Email} />
     <div>
       <h2>Favorite Movies</h2>
       {favoriteMovieList.map((movies) => {
