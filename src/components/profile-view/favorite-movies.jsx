@@ -1,7 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function FavoriteMovies({ favoriteMovieList }) {
+function FavoriteMovies({ props }) {
+  const { movies, favoriteMovies } = props;
+
+  const favoriteMoviesId = favoriteMovies.map((m) => m._id);
+
+  const favoriteMovieList = movies.filter((movies) => {
+    (m) => {
+      return favoriteMoviesId.includes(m._id);
+    };
+  });
+
   return (
     <div>
       <h2>Favorite Movies</h2>
