@@ -8,7 +8,7 @@ export function FavoriteMovies(props) {
   const favoriteMoviesId = favoriteMovies.map((movies) => movies._id);
 
   const favoriteMovieList = movies.filter((movies) => {
-    return favoriteMoviesId.includes(movies._id);
+    favoriteMoviesId.includes(movies._id);
   });
   console.log(favoriteMovieList);
 

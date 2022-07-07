@@ -45710,7 +45710,7 @@ function ProfileView(props) {
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(FavoriteMovies, {
-                favoriteMovieList: favoriteMovieList,
+                FavoriteMovies: FavoriteMovies,
                 removeFavorite: removeFavorite,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
@@ -45812,7 +45812,7 @@ function FavoriteMovies(props) {
     const favoriteMoviesId = favoriteMovies.map((movies1)=>movies1._id
     );
     const favoriteMovieList = movies.filter((movies1)=>{
-        return favoriteMoviesId.includes(movies1._id);
+        favoriteMoviesId.includes(movies1._id);
     });
     console.log(favoriteMovieList);
     return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {

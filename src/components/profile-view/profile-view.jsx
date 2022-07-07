@@ -90,7 +90,7 @@ export function ProfileView(props) {
   return (
     <div>
       <UserInfo name={user.Username} email={user.Email} />
-      <FavoriteMovies favoriteMovieList={favoriteMovieList} removeFavorite={removeFavorite} />
+      <FavoriteMovies FavoriteMovies={FavoriteMovies} removeFavorite={removeFavorite} />
       <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
     </div>
   );
