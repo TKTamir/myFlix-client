@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export function FavoriteMovies(props) {
-  const { movies, favoriteMovies } = props.favoriteMovies;
+  const { movies, FavoriteMovies } = props.FavoriteMovies;
 
-  const favoriteMoviesId = favoriteMovies.map((movies) => movies._id);
+  const FavoriteMoviesId = FavoriteMovies.map((movies) => movies._id);
 
-  const favoriteMovieList = movies.filter((movies) => {
-    favoriteMoviesId.includes(movies._id);
+  const FavoriteMoviesList = movies.filter((movies) => {
+    FavoriteMoviesId.includes(movies._id);
   });
-  console.log(favoriteMovieList);
+  console.log(FavoriteMoviesList);
 
   return (
     <>

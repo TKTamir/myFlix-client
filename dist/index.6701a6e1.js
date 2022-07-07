@@ -45628,7 +45628,7 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function ProfileView(props) {
     _s();
-    const [user, setUser] = _react.useState('');
+    const [username, setUser] = _react.useState('');
     const currentUser = localStorage.getItem('');
     const token = localStorage.getItem('token');
     const [FavoriteMovies, setFavoriteMovies] = _react.useState([]);
@@ -45730,7 +45730,7 @@ function ProfileView(props) {
         ]
     }));
 }
-_s(ProfileView, "WiW2aFyr22eUqzrwVU4Q5JgZJgg=");
+_s(ProfileView, "+9DtUpe0+Em3Ypvne539uU/zoEk=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
@@ -45808,13 +45808,13 @@ var _reactRouterDom = require("react-router-dom");
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 function FavoriteMovies(props) {
-    const { movies , favoriteMovies  } = props.favoriteMovies;
-    const favoriteMoviesId = favoriteMovies.map((movies1)=>movies1._id
+    const { movies , FavoriteMovies: FavoriteMovies1  } = props.FavoriteMovies;
+    const FavoriteMoviesId = FavoriteMovies1.map((movies1)=>movies1._id
     );
-    const favoriteMovieList = movies.filter((movies1)=>{
-        favoriteMoviesId.includes(movies1._id);
+    const FavoriteMoviesList = movies.filter((movies1)=>{
+        FavoriteMoviesId.includes(movies1._id);
     });
-    console.log(favoriteMovieList);
+    console.log(FavoriteMoviesList);
     return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
         children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
             __source: {

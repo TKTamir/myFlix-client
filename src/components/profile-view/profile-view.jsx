@@ -8,7 +8,7 @@ import './profile-view.scss';
 import PropTypes from 'prop-types';
 
 export function ProfileView(props) {
-  const [user, setUser] = useState('');
+  const [username, setUser] = useState('');
   const currentUser = localStorage.getItem('');
   const token = localStorage.getItem('token');
   const [FavoriteMovies, setFavoriteMovies] = useState([]);
