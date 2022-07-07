@@ -5,14 +5,13 @@ import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
 import './profile-view.scss';
+import PropTypes from 'prop-types';
 
-export function ProfileView({ movies, onUpdatedUserInfo }) {
-  const [user, setUser] = useState();
-  const currentUser = localStorage.getItem('user');
+export function ProfileView({ props }) {
+  const [user, setUser] = useState('');
+  const currentUser = localStorage.getItem('');
   const token = localStorage.getItem('token');
   const [favoriteMovies, setFavoriteMovies] = useState([]);
-
-  const favoriteMovieList = movies.filter((movies) => {});
 
   const getUser = () => {
     axios

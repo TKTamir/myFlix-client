@@ -45623,12 +45623,15 @@ var _favoriteMoviesDefault = parcelHelpers.interopDefault(_favoriteMovies);
 var _updateUser = require("./update-user");
 var _updateUserDefault = parcelHelpers.interopDefault(_updateUser);
 var _profileViewScss = require("./profile-view.scss");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function ProfileView({ props  }) {
     _s();
-    const [username, setUser] = _react.useState(props.user);
-    const currentUser = localStorage.getItem(props.user);
+    const [user, setUser] = _react.useState('');
+    const currentUser = localStorage.getItem('');
     const token = localStorage.getItem('token');
+    const [favoriteMovies, setFavoriteMovies] = _react.useState([]);
     const getUser = ()=>{
         _axiosDefault.default.get(`'https://appformovies.herokuapp.com/users/${currentUser}}`, {
             headers: {
@@ -45692,7 +45695,7 @@ function ProfileView({ props  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 88
+            lineNumber: 90
         },
         __self: this,
         children: [
@@ -45701,7 +45704,7 @@ function ProfileView({ props  }) {
                 email: user.Email,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 89
+                    lineNumber: 91
                 },
                 __self: this
             }),
@@ -45710,7 +45713,7 @@ function ProfileView({ props  }) {
                 removeFavorite: removeFavorite,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 90
+                    lineNumber: 92
                 },
                 __self: this
             }),
@@ -45719,14 +45722,14 @@ function ProfileView({ props  }) {
                 handleUpdate: handleUpdate,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 91
+                    lineNumber: 93
                 },
                 __self: this
             })
         ]
     }));
 }
-_s(ProfileView, "tyUe+AcbRJjL0Szzv84WM8TJv6c=");
+_s(ProfileView, "8nal/K9CKGUnwrymLxJPDXgCBaE=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
@@ -45736,7 +45739,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","react-router-dom":"cpyQW","./profile-view.scss":"gb0ga","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react/jsx-runtime":"8xIwr","./user-info":"cK8m8","./favorite-movies":"gKhXS","./update-user":"hBcEf"}],"gb0ga":[function() {},{}],"cK8m8":[function(require,module,exports) {
+},{"react":"6TuXu","react-router-dom":"cpyQW","./profile-view.scss":"gb0ga","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react/jsx-runtime":"8xIwr","./user-info":"cK8m8","./favorite-movies":"gKhXS","./update-user":"hBcEf","prop-types":"1tgq3"}],"gb0ga":[function() {},{}],"cK8m8":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$94e5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -45795,30 +45798,34 @@ $parcel$ReactRefreshHelpers$7994.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies
+);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 function FavoriteMovies({ props  }) {
     const { movies , favoriteMovies  } = props;
     const favoriteMoviesId = favoriteMovies.map((m)=>m._id
     );
     const favoriteMovieList = movies.filter((movies1)=>{
-        (m)=>{
-            return favoriteMoviesId.includes(m._id);
+        (movies2)=>{
+            return favoriteMoviesId.includes(movies2._id);
         };
     });
     return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/profile-view/favorite-movies.jsx",
-            lineNumber: 16
+            lineNumber: 17
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                 __source: {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 17
+                    lineNumber: 18
                 },
                 __self: this,
                 children: "Favorite Movies"
@@ -45827,7 +45834,7 @@ function FavoriteMovies({ props  }) {
                 return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     __source: {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 20
+                        lineNumber: 21
                     },
                     __self: this,
                     children: [
@@ -45835,7 +45842,7 @@ function FavoriteMovies({ props  }) {
                             src: movies1.ImagePath,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 21
+                                lineNumber: 22
                             },
                             __self: this
                         }),
@@ -45843,13 +45850,13 @@ function FavoriteMovies({ props  }) {
                             to: `/movies/${movies1._id}`,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 22
+                                lineNumber: 23
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                                 __source: {
                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                    lineNumber: 23
+                                    lineNumber: 24
                                 },
                                 __self: this,
                                 children: movies1.Title
@@ -45861,7 +45868,7 @@ function FavoriteMovies({ props  }) {
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 25
+                                lineNumber: 26
                             },
                             __self: this,
                             children: "Remove From List"
@@ -45882,7 +45889,7 @@ $RefreshReg$(_c, "FavoriteMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react-router-dom":"cpyQW"}],"hBcEf":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react-router-dom":"cpyQW","prop-types":"1tgq3"}],"hBcEf":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f560 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -45890,6 +45897,7 @@ $parcel$ReactRefreshHelpers$f560.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -45986,6 +45994,7 @@ function UpdateUser({ handleSubmit , handleUpdate  }) {
     }));
 }
 _c = UpdateUser;
+exports.default = UpdateUser;
 var _c;
 $RefreshReg$(_c, "UpdateUser");
 
