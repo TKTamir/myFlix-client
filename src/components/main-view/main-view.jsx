@@ -48,6 +48,21 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  /* When a user logs out, the props onLoggedout(data) is  revoking the token and setting the user to null.*/
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null,
+    });
+  }
+
+  onRegister() {
+    this.setState({
+      isRegistered: false,
+    });
+  }
+
   getMovies(token) {
     axios
       .get('https://appformovies.herokuapp.com/movies', {
