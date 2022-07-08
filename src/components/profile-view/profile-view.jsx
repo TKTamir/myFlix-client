@@ -91,9 +91,13 @@ export function ProfileView(props) {
 
   return (
     <Container>
-      <UserInfo name={currentUser.Username} email={currentUser.Email} />
-      <FavoriteMovies FavoriteMovies={FavoriteMovies} removeFavorite={removeFavorite} />
-      <UpdateUser handleUpdate={handleUpdate} handleDelete={handleDelete} />
+      <UserInfo
+        Username={currentUser.Username}
+        Email={currentUser.Email}
+        Birthdate={currentUser.Birthdate}
+      />
+      {/* <FavoriteMovies FavoriteMovies={currentUser.FavoriteMovies} removeFavorite={removeFavorite} />
+      <UpdateUser handleUpdate={handleUpdate} handleDelete={handleDelete} /> */}
     </Container>
   );
 }
