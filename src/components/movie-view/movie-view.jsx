@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, CardGroup, Container, Col, Row, Form } from 'react-bootstrap';
-
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      movies: [],
+      user: null,
+    };
+  }
   keypressCallback(event) {
     console.log(event.key);
   }
@@ -15,8 +22,46 @@ export class MovieView extends React.Component {
     document.addEventListener('keypress', this.keypressCallback);
   }
 
+  addFavorite(movie, user) {
+    let username = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
+    console.log(movie);
+    console.log(token);
+
+    axios
+      .post(
+        `https://appformovies.herokuapp.com/users/${username}/movies/${movie._id}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((response) => {
+        console.log(response.data);
+        alert(`${movie.Title} has beeen added to your favorites.`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  removeFavorite = (movie, user) => {
+    let username = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
+
+    axios
+      .delete(`https://appformovies.herokuapp.com/users/${username}/movies/${movie._id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response.data);
+        alert(`${movie.Title} has been removed from your favorites.`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
-    const { movie, onBackClick } = this.props;
+    const { movie, user, onBackClick } = this.props;
 
     return (
       <Container fluid className="movieViewContainer">
@@ -85,8 +130,22 @@ export class MovieView extends React.Component {
             >
               Back
             </Button>
-            <Button className="ml-2 my-2">Add to Favorites</Button>
-            <Button className="ml-2">Remove from Favorites</Button>
+            <Button
+              className="ml-2 my-2"
+              onClick={() => {
+                this.addFavorite(movie, user);
+              }}
+            >
+              Add to Favorites
+            </Button>
+            <Button
+              className="ml-2"
+              onClick={() => {
+                this.removeFavorite(movie, user);
+              }}
+            >
+              Remove from Favorites
+            </Button>
           </Col>
         </Row>
       </Container>
