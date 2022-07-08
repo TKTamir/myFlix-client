@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
 import './profile-view.scss';
@@ -84,11 +83,4 @@ export function ProfileView(props) {
       <UpdateUser />
     </Container>
   );
-}
-// handleUpdate={handleUpdate} handleDelete={handleDelete}
-{
-  /* <UserInfo /> */
-}
-{
-  /* <FavoriteMovies FavoriteMovies={currentUser.FavoriteMovies} removeFavorite={removeFavorite} /> */
 }

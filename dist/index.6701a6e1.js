@@ -45662,8 +45662,6 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _userInfo = require("./user-info");
-var _userInfoDefault = parcelHelpers.interopDefault(_userInfo);
 var _favoriteMovies = require("./favorite-movies");
 var _favoriteMoviesDefault = parcelHelpers.interopDefault(_favoriteMovies);
 var _updateUser = require("./update-user");
@@ -45718,20 +45716,20 @@ function ProfileView(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 57
+            lineNumber: 56
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 58
+                    lineNumber: 57
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 59
+                        lineNumber: 58
                     },
                     __self: this,
                     children: "Your profile"
@@ -45740,7 +45738,7 @@ function ProfileView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 61
+                    lineNumber: 60
                 },
                 __self: this,
                 children: [
@@ -45748,7 +45746,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 62
+                            lineNumber: 61
                         },
                         __self: this,
                         children: "Username:"
@@ -45757,7 +45755,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 63
+                            lineNumber: 62
                         },
                         __self: this,
                         children: user.Username
@@ -45768,7 +45766,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 65
+                    lineNumber: 64
                 },
                 __self: this,
                 children: [
@@ -45776,7 +45774,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 66
+                            lineNumber: 65
                         },
                         __self: this,
                         children: "Password:"
@@ -45785,7 +45783,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 67
+                            lineNumber: 66
                         },
                         __self: this,
                         children: "******"
@@ -45796,7 +45794,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 69
+                    lineNumber: 68
                 },
                 __self: this,
                 children: [
@@ -45804,7 +45802,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 70
+                            lineNumber: 69
                         },
                         __self: this,
                         children: "Email:"
@@ -45813,7 +45811,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 71
+                            lineNumber: 70
                         },
                         __self: this,
                         children: user.Email
@@ -45824,7 +45822,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 73
+                    lineNumber: 72
                 },
                 __self: this,
                 children: [
@@ -45832,7 +45830,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 74
+                            lineNumber: 73
                         },
                         __self: this,
                         children: "Birthday:"
@@ -45841,7 +45839,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 75
+                            lineNumber: 74
                         },
                         __self: this,
                         children: user.Birthdate
@@ -45852,13 +45850,13 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 77
+                    lineNumber: 76
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h5", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 78
+                        lineNumber: 77
                     },
                     __self: this,
                     children: "Your favourite movies"
@@ -45869,7 +45867,7 @@ function ProfileView(props) {
                 onClick: handleDelete,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 80
+                    lineNumber: 79
                 },
                 __self: this,
                 children: "Delete"
@@ -45877,14 +45875,14 @@ function ProfileView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMoviesDefault.default, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 83
+                    lineNumber: 82
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 84
+                    lineNumber: 83
                 },
                 __self: this
             })
@@ -45901,94 +45899,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","react-router-dom":"cpyQW","./profile-view.scss":"gb0ga","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react/jsx-runtime":"8xIwr","./user-info":"cK8m8","./favorite-movies":"gKhXS","./update-user":"hBcEf","react-bootstrap":"h2YVd"}],"gb0ga":[function() {},{}],"cK8m8":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$94e5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$94e5.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactBootstrap = require("react-bootstrap");
-var _s = $RefreshSig$();
-function Userinfo(props) {
-    _s();
-    const [user, setUser] = _react.useState(props.user);
-    const token = localStorage.getItem('token');
-    const currentUser = localStorage.getItem('user');
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-        __source: {
-            fileName: "src/components/profile-view/user-info.jsx",
-            lineNumber: 9
-        },
-        __self: this,
-        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-            __source: {
-                fileName: "src/components/profile-view/user-info.jsx",
-                lineNumber: 10
-            },
-            __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
-                __source: {
-                    fileName: "src/components/profile-view/user-info.jsx",
-                    lineNumber: 11
-                },
-                __self: this,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.P, {
-                        __source: {
-                            fileName: "src/components/profile-view/user-info.jsx",
-                            lineNumber: 12
-                        },
-                        __self: this,
-                        children: [
-                            "User: ",
-                            user.Username
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.P, {
-                        __source: {
-                            fileName: "src/components/profile-view/user-info.jsx",
-                            lineNumber: 13
-                        },
-                        __self: this,
-                        children: [
-                            "Email: ",
-                            user.Email
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.P, {
-                        __source: {
-                            fileName: "src/components/profile-view/user-info.jsx",
-                            lineNumber: 14
-                        },
-                        __self: this,
-                        children: [
-                            "Birthdate: ",
-                            user.Birthdate
-                        ]
-                    })
-                ]
-            })
-        })
-    }));
-}
-exports.default = Userinfo;
-_s(Userinfo, "AXmXfw8ndLSg1vp3rpeCJQdx3/4=");
-_c = Userinfo;
-var _c;
-$RefreshReg$(_c, "Userinfo");
-
-  $parcel$ReactRefreshHelpers$94e5.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react-bootstrap":"h2YVd"}],"gKhXS":[function(require,module,exports) {
+},{"react":"6TuXu","react-router-dom":"cpyQW","./profile-view.scss":"gb0ga","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"iHN5Y","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lIOMZ","react/jsx-runtime":"8xIwr","./favorite-movies":"gKhXS","./update-user":"hBcEf","react-bootstrap":"h2YVd"}],"gb0ga":[function() {},{}],"gKhXS":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
