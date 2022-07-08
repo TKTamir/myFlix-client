@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProfileView } from './profile-view';
 import axios from 'axios';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Container, Col, Row, Button, Form } from 'react-bootstrap';
 
 export default function UpdateUser(props) {
   const { user } = props;
