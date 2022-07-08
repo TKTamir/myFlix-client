@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ProfileView } from './profile-view';
 import axios from 'axios';
+import { Container, Col, Row, Button } from 'react-bootstrap';
 
 export default function UpdateUser(props) {
   const { user } = props;
@@ -76,18 +77,6 @@ export default function UpdateUser(props) {
           alert('It seems something went wrong');
         });
     }
-    const handleDelete = (e) => {
-      axios
-        .delete(`https://movime-api.herokuapp.com/users/${currentUser.username}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then(() => {
-          alert(`The account ${user.Username} has been deleted.`);
-          localStorage.clear();
-          window.open('/register', '_self');
-        })
-        .catch((error) => console.error(error));
-    };
   };
   return (
     <form className="profile-form">
@@ -100,12 +89,9 @@ export default function UpdateUser(props) {
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <label>Birthdate:</label>
       <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
-      <button variant="primary" type="submit" onClick={(e) => handleUpdate(e)}>
+      <Button className="mx-3" variant="primary" type="submit" onClick={(e) => handleUpdate(e)}>
         Update
-      </button>
-      <button variant="danger" type="submit" onClick={(e) => handleDelete(e)}>
-        Delete
-      </button>
+      </Button>
     </form>
   );
 }
