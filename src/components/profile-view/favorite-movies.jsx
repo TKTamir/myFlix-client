@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Container, Col, Row } from 'react-bootstrap';
 
 export function FavoriteMovies(props) {
   const { movies, FavoriteMovies } = props.FavoriteMovies;
@@ -16,7 +16,7 @@ export function FavoriteMovies(props) {
     <>
       <div>
         <h2>Favorite Movies</h2>
-        {favoriteMovieList?.map((movies) => {
+        {FavoriteMoviesList?.map((movies) => {
           return (
             <div key={movies._id}>
               <img src={movies.ImagePath} />
