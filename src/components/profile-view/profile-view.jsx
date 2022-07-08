@@ -9,11 +9,10 @@ import PropTypes from 'prop-types';
 import { Container, Col, Row } from 'react-bootstrap';
 
 export function ProfileView(props) {
-  const [currentUser, setUser] = useState('');
-  const [token, setToken] = useState('');
-  const [email, SetEmail] = useState('');
-  const [birthdate, setBirthdate] = useState('');
+  const [user, setUser] = useState(props.user);
   const [FavoriteMovies, setFavoriteMovies] = useState([]);
+  const token = localStorage.getItem('token');
+  const currentUser = localStorage.getItem('user');
 
   const getUser = () => {
     axios
@@ -22,9 +21,6 @@ export function ProfileView(props) {
       })
       .then((response) => {
         setUser(response.data);
-        setToken(response.data);
-        SetEmail(response.data);
-        setBirthdate(response.data);
         setFavoriteMovies(response.data.FavoriteMovies);
       })
       .catch((error) => console.error(error));
@@ -32,50 +28,6 @@ export function ProfileView(props) {
   useEffect(() => {
     getUser();
   }, []);
-
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    /* Send a request to the server for authentication */
-    const isReq = validate();
-    if (isReq) {
-      axios
-        .put(
-          `https://appformovies.herokuapp.com/users/${currentUser.Username}`,
-          {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthdate: birthdate,
-            FavoriteMovies: FavoriteMovies,
-          },
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-          alert('Profile was successfully updated.');
-          window.open('/users/:username', '_self');
-        })
-        .catch((error) => {
-          console.error(error);
-          alert('It seems something went wrong');
-        });
-    }
-  };
-
-  const handleDelete = (e) => {
-    axios
-      .delete(`https://movime-api.herokuapp.com/users/${currentUser.username}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => {
-        alert(`The account ${user.Username} has been deleted.`);
-        localStorage.clear();
-        window.open('/register', '_self');
-      })
-      .catch((error) => console.error(error));
-  };
 
   const removeFavorite = (movieId) => {
     axios
@@ -91,13 +43,10 @@ export function ProfileView(props) {
 
   return (
     <Container>
-      <UserInfo
-        Username={currentUser.Username}
-        Email={currentUser.Email}
-        Birthdate={currentUser.Birthdate}
-      />
-      {/* <FavoriteMovies FavoriteMovies={currentUser.FavoriteMovies} removeFavorite={removeFavorite} />
-      <UpdateUser handleUpdate={handleUpdate} handleDelete={handleDelete} /> */}
+      {/* <UserInfo /> */}
+      {/* <FavoriteMovies FavoriteMovies={currentUser.FavoriteMovies} removeFavorite={removeFavorite} /> */}
+      <UpdateUser />
     </Container>
   );
 }
+// handleUpdate={handleUpdate} handleDelete={handleDelete}
