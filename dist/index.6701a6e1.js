@@ -25651,7 +25651,7 @@ class MainView extends _reactDefault.default.Component {
                                         })
                                     }));
                                     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(UserUpdate, {
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(UpdateUser, {
                                             user: user,
                                             onBackClick: ()=>history.goBack()
                                         })
@@ -45696,41 +45696,22 @@ function ProfileView(props) {
         }).catch((error)=>console.error(error)
         );
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
             lineNumber: 93
         },
         __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx(_userInfoDefault.default, {
-                name: currentUser.Username,
-                email: currentUser.Email,
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 94
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(FavoriteMovies, {
-                FavoriteMovies: FavoriteMovies,
-                removeFavorite: removeFavorite,
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 95
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
-                handleUpdate: handleUpdate,
-                handleDelete: handleDelete,
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 96
-                },
-                __self: this
-            })
-        ]
+        children: /*#__PURE__*/ _jsxRuntime.jsx(_userInfoDefault.default, {
+            Username: currentUser.Username,
+            Email: currentUser.Email,
+            Birthdate: currentUser.Birthdate,
+            __source: {
+                fileName: "src/components/profile-view/profile-view.jsx",
+                lineNumber: 94
+            },
+            __self: this
+        })
     }));
 }
 _s(ProfileView, "+4+NUNIWNdOoU+jVIyAa47eiqQs=");
@@ -45756,7 +45737,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-function Userinfo(email, username, birthdate) {
+function Userinfo({ Email , Username , Birthdate  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/profile-view/user-info.jsx",
@@ -45776,7 +45757,7 @@ function Userinfo(email, username, birthdate) {
                 },
                 __self: this,
                 children: [
-                    /*#__PURE__*/ _jsxRuntime.jsxs(P, {
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.P, {
                         __source: {
                             fileName: "src/components/profile-view/user-info.jsx",
                             lineNumber: 9
@@ -45784,10 +45765,10 @@ function Userinfo(email, username, birthdate) {
                         __self: this,
                         children: [
                             "User: ",
-                            username
+                            Username
                         ]
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(P, {
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.P, {
                         __source: {
                             fileName: "src/components/profile-view/user-info.jsx",
                             lineNumber: 10
@@ -45795,10 +45776,10 @@ function Userinfo(email, username, birthdate) {
                         __self: this,
                         children: [
                             "Email: ",
-                            email
+                            Email
                         ]
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(P, {
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.P, {
                         __source: {
                             fileName: "src/components/profile-view/user-info.jsx",
                             lineNumber: 11
@@ -45806,7 +45787,7 @@ function Userinfo(email, username, birthdate) {
                         __self: this,
                         children: [
                             "Birthdate: ",
-                            birthdate
+                            Birthdate
                         ]
                     })
                 ]
@@ -45814,8 +45795,8 @@ function Userinfo(email, username, birthdate) {
         })
     }));
 }
-_c = Userinfo;
 exports.default = Userinfo;
+_c = Userinfo;
 var _c;
 $RefreshReg$(_c, "Userinfo");
 
@@ -45833,8 +45814,6 @@ $parcel$ReactRefreshHelpers$7994.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies
-);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -45914,8 +45893,8 @@ function FavoriteMovies(props) {
         })
     }));
 }
-_c = FavoriteMovies;
 exports.default = FavoriteMovies;
+_c = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");
 
@@ -46040,8 +46019,8 @@ function UpdateUser({ handleUpdate , handleDelete  }) {
         ]
     }));
 }
-_c = UpdateUser;
 exports.default = UpdateUser;
+_c = UpdateUser;
 var _c;
 $RefreshReg$(_c, "UpdateUser");
 

@@ -201,7 +201,7 @@ export class MainView extends React.Component {
                   );
                 return (
                   <Col>
-                    <UserUpdate user={user} onBackClick={() => history.goBack()} />
+                    <UpdateUser user={user} onBackClick={() => history.goBack()} />
                   </Col>
                 );
               }}
