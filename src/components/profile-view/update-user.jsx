@@ -48,8 +48,9 @@ export default function UpdateUser(props) {
     return isReq;
   };
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
+  const handleUpdate = () => {
+    let user = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
     /* Send a request to the server for authentication */
     const isReq = validate();
     if (isReq) {
@@ -67,9 +68,9 @@ export default function UpdateUser(props) {
           }
         )
         .then((response) => {
-          const data = response.data;
-          console.log(data);
           alert('Profile was successfully updated.');
+          localStorage.setItem('user', response.data.Username);
+          console.log(response.data);
           window.open('/users/:username', '_self');
         })
         .catch((error) => {
@@ -80,7 +81,7 @@ export default function UpdateUser(props) {
   };
   return (
     <form className="profile-form">
-      <h2>Edit User Info</h2>
+      <h4>Edit User Info</h4>
       <label>Username:</label>
       <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       <label>Password:</label>
