@@ -45627,9 +45627,15 @@ var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 function ProfileView(props) {
     _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [favoriteMovies, setFavoriteMovies] = _react.useState({
+    });
+    const [email, setEmail] = _react.useState('');
+    const [birthdate, setBirthdate] = _react.useState('');
     const [user, setUser] = _react.useState(props.user);
-    const [FavoriteMovies, setFavoriteMovies] = _react.useState([]);
     const token = localStorage.getItem('token');
+    const [favoriteMoviesList, setFavoriteMoviesList] = _react.useState([]);
     const currentUser = localStorage.getItem('user');
     const getUser = ()=>{
         _axiosDefault.default.get(`'https://appformovies.herokuapp.com/users/${currentUser}}`, {
@@ -45638,7 +45644,10 @@ function ProfileView(props) {
             }
         }).then((response)=>{
             setUser(response.data);
-            setFavoriteMovies(response.data.FavoriteMovies);
+            setUsername(response.data.Username);
+            setEmail(response.data.Email);
+            setFavoriteMoviesList(response.data.FavoriteMovies);
+            console.log(response);
         }).catch((error)=>console.error(error)
         );
     };
@@ -45646,34 +45655,37 @@ function ProfileView(props) {
         getUser();
     }, []);
     const handleDelete = (e)=>{
-        _axiosDefault.default.delete(`https://movime-api.herokuapp.com/users/${currentUser.username}`, {
+        let user1 = localStorage.getItem('user');
+        let token1 = localStorage.getItem('token');
+        _axiosDefault.default.delete(`https://appformovies.herokuapp.com/users/${user1}`, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token1}`
             }
-        }).then(()=>{
-            alert(`The account ${user.Username} has been deleted.`);
+        }).then((response)=>{
+            alert(`The account ${user1.Username} has been deleted.`);
             localStorage.clear();
             window.open('/register', '_self');
+            console.log(response);
         }).catch((error)=>console.error(error)
         );
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 44
+            lineNumber: 57
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 45
+                    lineNumber: 58
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 46
+                        lineNumber: 59
                     },
                     __self: this,
                     children: "Your profile"
@@ -45682,7 +45694,7 @@ function ProfileView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 48
+                    lineNumber: 61
                 },
                 __self: this,
                 children: [
@@ -45690,7 +45702,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 49
+                            lineNumber: 62
                         },
                         __self: this,
                         children: "Username:"
@@ -45699,7 +45711,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 50
+                            lineNumber: 63
                         },
                         __self: this,
                         children: user.Username
@@ -45710,7 +45722,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 52
+                    lineNumber: 65
                 },
                 __self: this,
                 children: [
@@ -45718,7 +45730,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 53
+                            lineNumber: 66
                         },
                         __self: this,
                         children: "Password:"
@@ -45727,10 +45739,10 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 54
+                            lineNumber: 67
                         },
                         __self: this,
-                        children: "Password length must exceed 6 characters"
+                        children: "******"
                     })
                 ]
             }),
@@ -45738,7 +45750,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 56
+                    lineNumber: 69
                 },
                 __self: this,
                 children: [
@@ -45746,7 +45758,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 57
+                            lineNumber: 70
                         },
                         __self: this,
                         children: "Email:"
@@ -45755,7 +45767,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 58
+                            lineNumber: 71
                         },
                         __self: this,
                         children: user.Email
@@ -45766,7 +45778,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 60
+                    lineNumber: 73
                 },
                 __self: this,
                 children: [
@@ -45774,7 +45786,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 61
+                            lineNumber: 74
                         },
                         __self: this,
                         children: "Birthday:"
@@ -45783,7 +45795,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 62
+                            lineNumber: 75
                         },
                         __self: this,
                         children: user.Birthdate
@@ -45794,13 +45806,13 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 64
+                    lineNumber: 77
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h5", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 65
+                        lineNumber: 78
                     },
                     __self: this,
                     children: "Your favourite movies"
@@ -45811,29 +45823,29 @@ function ProfileView(props) {
                 onClick: handleDelete,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 67
+                    lineNumber: 80
                 },
                 __self: this,
                 children: "Delete"
             }),
-            /*#__PURE__*/ _jsxRuntime.jsx(FavoriteMovies, {
+            /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMoviesDefault.default, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 70
+                    lineNumber: 83
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 71
+                    lineNumber: 84
                 },
                 __self: this
             })
         ]
     }));
 }
-_s(ProfileView, "MZXCLYZTsqvxJHJGtI6OCP8N8f4=");
+_s(ProfileView, "TJcBrowPTrAA2tuhzIo1WnzX9IM=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
@@ -45944,12 +45956,12 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
+var _s = $RefreshSig$();
 function FavoriteMovies(props) {
-    const { movies , FavoriteMovies: FavoriteMovies1  } = props.FavoriteMovies;
-    const FavoriteMoviesId = FavoriteMovies1.map((movies1)=>movies1._id
-    );
+    _s();
+    const [movies, setMovies] = _react.useState([]);
     const FavoriteMoviesList = movies.filter((movies1)=>{
-        FavoriteMoviesId.includes(movies1._id);
+        FavoriteMovies.includes(movies1._id);
     });
     console.log(FavoriteMoviesList);
     const removeFavorite = (movieId)=>{
@@ -45958,6 +45970,7 @@ function FavoriteMovies(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then(()=>{
+            setMovies('');
             alert('The movie has been successfuly removed.');
             window.open('/users/:username', '_self');
         }).catch((error)=>console.error(error)
@@ -45966,14 +45979,14 @@ function FavoriteMovies(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/profile-view/favorite-movies.jsx",
-            lineNumber: 28
+            lineNumber: 27
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                 __source: {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 29
+                    lineNumber: 28
                 },
                 __self: this,
                 children: "Favorite Movies"
@@ -45982,7 +45995,7 @@ function FavoriteMovies(props) {
                 return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     __source: {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 32
+                        lineNumber: 31
                     },
                     __self: this,
                     children: [
@@ -45990,7 +46003,7 @@ function FavoriteMovies(props) {
                             src: movies1.ImagePath,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 33
+                                lineNumber: 32
                             },
                             __self: this
                         }),
@@ -45998,25 +46011,25 @@ function FavoriteMovies(props) {
                             to: `/movies/${movies1._id}`,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 34
+                                lineNumber: 33
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                                 __source: {
                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                    lineNumber: 35
+                                    lineNumber: 34
                                 },
                                 __self: this,
                                 children: movies1.Title
                             })
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                        /*#__PURE__*/ _jsxRuntime.jsx(Button, {
                             variant: "secondary",
                             onClick: ()=>removeFavorite(movies1._id)
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 37
+                                lineNumber: 36
                             },
                             __self: this,
                             children: "Remove From List"
@@ -46028,6 +46041,7 @@ function FavoriteMovies(props) {
     }));
 }
 exports.default = FavoriteMovies;
+_s(FavoriteMovies, "m6SRVq9N0POigGpMlnh/6woD7xI=");
 _c = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");
@@ -46119,22 +46133,23 @@ function UpdateUser(props) {
         }
         return isReq;
     };
-    const handleUpdate = (e)=>{
-        e.preventDefault();
+    const handleUpdate = ()=>{
+        let user1 = localStorage.getItem('user');
+        let token1 = localStorage.getItem('token');
         /* Send a request to the server for authentication */ const isReq = validate();
-        if (isReq) _axiosDefault.default.put(`https://appformovies.herokuapp.com/users/${user}`, {
+        if (isReq) _axiosDefault.default.put(`https://appformovies.herokuapp.com/users/${user1}`, {
             Username: username,
             Password: password,
             Email: email,
             Birthdate: birthdate
         }, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token1}`
             }
         }).then((response)=>{
-            const data = response.data;
-            console.log(data);
             alert('Profile was successfully updated.');
+            localStorage.setItem('user', response.data.Username);
+            console.log(response.data);
             window.open('/users/:username', '_self');
         }).catch((error)=>{
             console.error(error);
@@ -46145,14 +46160,14 @@ function UpdateUser(props) {
         className: "profile-form",
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 82
+            lineNumber: 83
         },
         __self: this,
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h2", {
+            /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 83
+                    lineNumber: 84
                 },
                 __self: this,
                 children: "Edit User Info"
@@ -46160,7 +46175,7 @@ function UpdateUser(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("label", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 84
+                    lineNumber: 85
                 },
                 __self: this,
                 children: "Username:"
@@ -46172,14 +46187,14 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 85
+                    lineNumber: 86
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("label", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 86
+                    lineNumber: 87
                 },
                 __self: this,
                 children: "Password:"
@@ -46191,14 +46206,14 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 87
+                    lineNumber: 88
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("label", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 88
+                    lineNumber: 89
                 },
                 __self: this,
                 children: "Email:"
@@ -46210,14 +46225,14 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 89
+                    lineNumber: 90
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("label", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 90
+                    lineNumber: 91
                 },
                 __self: this,
                 children: "Birthdate:"
@@ -46229,7 +46244,7 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 91
+                    lineNumber: 92
                 },
                 __self: this
             }),
@@ -46241,7 +46256,7 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 92
+                    lineNumber: 93
                 },
                 __self: this,
                 children: "Update"

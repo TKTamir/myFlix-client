@@ -8,9 +8,16 @@ import './profile-view.scss';
 import { Container, Col, Row, Button } from 'react-bootstrap';
 
 export function ProfileView(props) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [favoriteMovies, setFavoriteMovies] = useState({});
+  const [email, setEmail] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+
   const [user, setUser] = useState(props.user);
-  const [FavoriteMovies, setFavoriteMovies] = useState([]);
   const token = localStorage.getItem('token');
+  const [favoriteMoviesList, setFavoriteMoviesList] = useState([]);
+
   const currentUser = localStorage.getItem('user');
 
   const getUser = () => {
@@ -20,7 +27,10 @@ export function ProfileView(props) {
       })
       .then((response) => {
         setUser(response.data);
-        setFavoriteMovies(response.data.FavoriteMovies);
+        setUsername(response.data.Username);
+        setEmail(response.data.Email);
+        setFavoriteMoviesList(response.data.FavoriteMovies);
+        console.log(response);
       })
       .catch((error) => console.error(error));
   };
@@ -29,14 +39,17 @@ export function ProfileView(props) {
   }, []);
 
   const handleDelete = (e) => {
+    let user = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
     axios
-      .delete(`https://movime-api.herokuapp.com/users/${currentUser.username}`, {
+      .delete(`https://appformovies.herokuapp.com/users/${user}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(() => {
+      .then((response) => {
         alert(`The account ${user.Username} has been deleted.`);
         localStorage.clear();
         window.open('/register', '_self');
+        console.log(response);
       })
       .catch((error) => console.error(error));
   };
@@ -51,7 +64,7 @@ export function ProfileView(props) {
       </Row>
       <Row className="mt-3">
         <Col className="label">Password:</Col>
-        <Col className="value">Password length must exceed 6 characters</Col>
+        <Col className="value">******</Col>
       </Row>
       <Row className="mt-3">
         <Col className="label">Email:</Col>
