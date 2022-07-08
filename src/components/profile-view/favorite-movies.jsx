@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Col, Row, Button } from 'react-bootstrap';
-
+import { Container, Col, Row, Button, Card } from 'react-bootstrap';
+import { MovieCard } from '../movie-card/movie-card';
 export default function FavoriteMovies(props) {
   const [movies, setMovies] = useState([]);
 
@@ -28,15 +28,17 @@ export default function FavoriteMovies(props) {
       <h2>Favorite Movies</h2>
       {FavoriteMoviesList?.map((movies) => {
         return (
-          <div key={movies._id}>
-            <img src={movies.ImagePath} />
-            <Link to={`/movies/${movies._id}`}>
-              <h4>{movies.Title}</h4>
-            </Link>
-            <Button variant="secondary" onClick={() => removeFavorite(movies._id)}>
-              Remove From List
-            </Button>
-          </div>
+          <Card className="movie-card">
+            <div key={movies._id}>
+              <img src={movies.ImagePath} />
+              <Link to={`/movies/${movies._id}`}>
+                <h4>{movies.Title}</h4>
+              </Link>
+              <Button variant="secondary" onClick={() => removeFavorite(movies._id)}>
+                Remove From List
+              </Button>
+            </div>
+          </Card>
         );
       })}
     </Container>
