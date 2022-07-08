@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UpdateUser({ handleUpdate, handleDelete }) {
+export default function UpdateUser({ handleUpdate, handleDelete }) {
   return (
     <form className="profile-form">
       <h2>Edit User Info</h2>
@@ -34,4 +34,3 @@ function UpdateUser({ handleUpdate, handleDelete }) {
     </form>
   );
 }
-export default UpdateUser;

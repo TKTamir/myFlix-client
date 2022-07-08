@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Col, Row } from 'react-bootstrap';
 
-export function FavoriteMovies(props) {
+export default function FavoriteMovies(props) {
   const { movies, FavoriteMovies } = props.FavoriteMovies;
 
   const FavoriteMoviesId = FavoriteMovies.map((movies) => movies._id);
@@ -33,5 +33,3 @@ export function FavoriteMovies(props) {
     </>
   );
 }
-
-export default FavoriteMovies;

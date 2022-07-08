@@ -1,18 +1,16 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row, P } from 'react-bootstrap';
 
-function Userinfo(email, username, birthdate) {
+export default function Userinfo({ Email, Username, Birthdate }) {
   return (
     <Container>
       <Row>
         <Col>
-          <P>User: {username}</P>
-          <P>Email: {email}</P>
-          <P>Birthdate: {birthdate}</P>
+          <P>User: {Username}</P>
+          <P>Email: {Email}</P>
+          <P>Birthdate: {Birthdate}</P>
         </Col>
       </Row>
     </Container>
   );
 }
-
-export default Userinfo;
