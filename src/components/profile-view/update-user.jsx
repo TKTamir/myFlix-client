@@ -79,6 +79,21 @@ export default function UpdateUser(props) {
         });
     }
   };
+  const handleDelete = (e) => {
+    let user = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
+    axios
+      .delete(`https://appformovies.herokuapp.com/users/${user}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        alert(`The account ${user.Username} has been deleted.`);
+        localStorage.clear();
+        window.open('/register', '_self');
+        console.log(response);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <form className="profile-form">
       <h4>Edit User Info</h4>
@@ -92,6 +107,9 @@ export default function UpdateUser(props) {
       <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
       <Button className="mx-3" variant="primary" type="submit" onClick={(e) => handleUpdate(e)}>
         Update
+      </Button>
+      <Button variant="danger" onClick={handleDelete}>
+        Delete
       </Button>
     </form>
   );

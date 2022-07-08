@@ -37,21 +37,6 @@ export function ProfileView(props) {
     getUser();
   }, []);
 
-  const handleDelete = (e) => {
-    let user = localStorage.getItem('user');
-    let token = localStorage.getItem('token');
-    axios
-      .delete(`https://appformovies.herokuapp.com/users/${user}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        alert(`The account ${user.Username} has been deleted.`);
-        localStorage.clear();
-        window.open('/register', '_self');
-        console.log(response);
-      })
-      .catch((error) => console.error(error));
-  };
   return (
     <Container>
       <Row>
@@ -76,9 +61,6 @@ export function ProfileView(props) {
       <Row className="mt-3">
         <h5>Your favourite movies</h5>
       </Row>
-      <Button variant="danger" onClick={handleDelete}>
-        Delete
-      </Button>
       <FavoriteMovies />
       <UpdateUser />
     </Container>
