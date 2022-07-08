@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Col, Row } from 'react-bootstrap';
 
 export default function FavoriteMovies(props) {
-  const { movies, FavoriteMovies } = props.FavoriteMovies;
-
-  const FavoriteMoviesId = FavoriteMovies.map((movies) => movies._id);
+  const [movies, setMovies] = useState([]);
 
   const FavoriteMoviesList = movies.filter((movies) => {
-    FavoriteMoviesId.includes(movies._id);
+    FavoriteMovies.includes(movies._id);
   });
   console.log(FavoriteMoviesList);
 
@@ -18,6 +16,7 @@ export default function FavoriteMovies(props) {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
+        setMovies('');
         alert('The movie has been successfuly removed.');
         window.open('/users/:username', '_self');
       })
@@ -34,9 +33,9 @@ export default function FavoriteMovies(props) {
             <Link to={`/movies/${movies._id}`}>
               <h4>{movies.Title}</h4>
             </Link>
-            <button variant="secondary" onClick={() => removeFavorite(movies._id)}>
+            <Button variant="secondary" onClick={() => removeFavorite(movies._id)}>
               Remove From List
-            </button>
+            </Button>
           </div>
         );
       })}
