@@ -21,7 +21,7 @@ export function ProfileView(props) {
 
   const getUser = () => {
     axios
-      .get(`'https://appformovies.herokuapp.com/users/${currentUser}}`, {
+      .get(`https://appformovies.herokuapp.com/users/${currentUser}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
