@@ -55,7 +55,7 @@ export function ProfileView(props) {
         <Col className="value">{user.Email}</Col>
       </Row>
       <Row className="mt-3">
-        <Col className="label">Birthday:</Col>
+        <Col className="label">Birthdate:</Col>
         <Col className="value">{user.Birthdate}</Col>
       </Row>
       <Row className="mt-3">

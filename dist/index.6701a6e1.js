@@ -45832,7 +45832,7 @@ function ProfileView(props) {
                             lineNumber: 58
                         },
                         __self: this,
-                        children: "Birthday:"
+                        children: "Birthdate:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         className: "value",
