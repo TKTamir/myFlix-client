@@ -43,15 +43,14 @@ export default function FavoriteMovies(props) {
       ) : (
         favoriteMovies.map((movie, ImagePath, Title, _id) => {
           return (
-            <Card className="movie-card" key={movie._id}>
+            <>
               <Figure>
                 <Link to={`/movies/${_id}`}>
                   <Figure.Image variant="top" src={ImagePath} alt={Title} />
-                </Link>
-              </Figure>
 
-              <Card.Body>
-                <Card.Title>{Title}</Card.Title>
+                  <Figure.Caption>{Title}</Figure.Caption>
+                </Link>
+
                 <Link to={`/movies/${movie._id}`}>
                   <Button className="button" variant="primary">
                     Open
@@ -60,8 +59,8 @@ export default function FavoriteMovies(props) {
                     Remove From List
                   </Button>
                 </Link>
-              </Card.Body>
-            </Card>
+              </Figure>
+            </>
           );
         })
       )}
