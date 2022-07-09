@@ -41,7 +41,7 @@ export function ProfileView(props) {
   return (
     <Container>
       <Row>
-        <h3>Your profile</h3>
+        <h3>Your profile:</h3>
       </Row>
       <Row>
         <Col className="label">Username:</Col>
@@ -59,14 +59,12 @@ export function ProfileView(props) {
         <Col className="label">Birthdate:</Col>
         <Col className="value">{user.Birthdate}</Col>
       </Row>
-      <Row className="mt-3">
-        <h5>Your favourite movies</h5>
-      </Row>
+
       <Row>
         <UpdateUser />
       </Row>
       <Row>
-        <h5>Your favorite movies</h5>
+        <h5>Your favorite movies:</h5>
         <FavoriteMovies
           movies={movies}
           favoriteMovies={favoriteMovies}

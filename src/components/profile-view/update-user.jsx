@@ -111,7 +111,7 @@ export default function UpdateUser(props) {
   };
   return (
     <form className="profile-form">
-      <h4>Edit User Info</h4>
+      <h4>Edit User Info:</h4>
       <label>Username:</label>
       <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       <label>Password:</label>
