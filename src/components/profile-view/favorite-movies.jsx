@@ -29,7 +29,7 @@ export default function FavoriteMovies(props) {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        setMovies('');
+        setFavoriteMovies(response.data.FavoriteMovies);
         alert('The movie has been successfuly removed.');
         window.open('/users/:username', '_self');
       })
