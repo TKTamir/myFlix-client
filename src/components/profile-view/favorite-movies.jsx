@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Col, Row, Button, Card } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
-export default function FavoriteMovies(props) {
+
+export default function FavoriteMovies(FavoriteMovieList) {
   const [movies, setMovies] = useState([]);
 
   const FavoriteMoviesList = movies.filter((movies) => {
@@ -25,7 +26,6 @@ export default function FavoriteMovies(props) {
 
   return (
     <Container>
-      <h2>Favorite Movies</h2>
       {FavoriteMoviesList?.map((movies) => {
         return (
           <Card className="movie-card">
