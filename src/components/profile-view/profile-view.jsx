@@ -28,7 +28,8 @@ export function ProfileView(props) {
         setUser(response.data);
         setUsername(response.data.Username);
         setEmail(response.data.Email);
-        setFavoriteMoviesList(response.data.FavoriteMovies);
+        setBirthdate(response.data.Birthdate);
+        setFavoriteMoviesList(response.data.FavoriteMoviesList);
         console.log(response);
       })
       .catch((error) => console.error(error));
