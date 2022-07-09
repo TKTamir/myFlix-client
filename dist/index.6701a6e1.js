@@ -46103,10 +46103,6 @@ function UpdateUser(props) {
             }
         }).then((response)=>{
             alert('Profile was successfully updated.');
-            setUser(response.data);
-            setUsername(response.data.Username);
-            setEmail(response.data.Email);
-            setBirthdate(response.data.Birthdate);
             localStorage.setItem('user', response.data.Username);
             console.log(response.data);
             window.open('/users/:username', '_self');
@@ -46134,14 +46130,14 @@ function UpdateUser(props) {
         className: "profile-form",
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 102
+            lineNumber: 98
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 103
+                    lineNumber: 99
                 },
                 __self: this,
                 children: "Edit User Info"
@@ -46149,7 +46145,7 @@ function UpdateUser(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("label", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 104
+                    lineNumber: 100
                 },
                 __self: this,
                 children: "Username:"
@@ -46158,6 +46154,44 @@ function UpdateUser(props) {
                 type: "text",
                 value: username,
                 onChange: (e)=>setUsername(e.target.value)
+                ,
+                __source: {
+                    fileName: "src/components/profile-view/update-user.jsx",
+                    lineNumber: 101
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                __source: {
+                    fileName: "src/components/profile-view/update-user.jsx",
+                    lineNumber: 102
+                },
+                __self: this,
+                children: "Password:"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                type: "password",
+                value: password,
+                onChange: (e)=>setPassword(e.target.value)
+                ,
+                __source: {
+                    fileName: "src/components/profile-view/update-user.jsx",
+                    lineNumber: 103
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                __source: {
+                    fileName: "src/components/profile-view/update-user.jsx",
+                    lineNumber: 104
+                },
+                __self: this,
+                children: "Email:"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                type: "email",
+                value: email,
+                onChange: (e)=>setEmail(e.target.value)
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
@@ -46171,44 +46205,6 @@ function UpdateUser(props) {
                     lineNumber: 106
                 },
                 __self: this,
-                children: "Password:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                type: "password",
-                value: password,
-                onChange: (e)=>setPassword(e.target.value)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 107
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("label", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 108
-                },
-                __self: this,
-                children: "Email:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                type: "email",
-                value: email,
-                onChange: (e)=>setEmail(e.target.value)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 109
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("label", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 110
-                },
-                __self: this,
                 children: "Birthdate:"
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("input", {
@@ -46218,7 +46214,7 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 111
+                    lineNumber: 107
                 },
                 __self: this
             }),
@@ -46230,7 +46226,7 @@ function UpdateUser(props) {
                 ,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 112
+                    lineNumber: 108
                 },
                 __self: this,
                 children: "Update"
@@ -46240,7 +46236,7 @@ function UpdateUser(props) {
                 onClick: handleDelete,
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 115
+                    lineNumber: 111
                 },
                 __self: this,
                 children: "Delete"
