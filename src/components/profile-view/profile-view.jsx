@@ -8,10 +8,10 @@ import { Container, Col, Row, Button } from 'react-bootstrap';
 
 export function ProfileView(props) {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [favoriteMovies, setFavoriteMovies] = useState({});
   const [email, setEmail] = useState('');
   const [birthdate, setBirthdate] = useState('');
+  const [movies, setMovies] = useState('');
 
   const [user, setUser] = useState(props.user);
   const token = localStorage.getItem('token');
@@ -25,11 +25,13 @@ export function ProfileView(props) {
       })
       .then((response) => {
         setUser(response.data);
+        setMovies(response.data.movies);
         setUsername(response.data.Username);
         setEmail(response.data.Email);
         setBirthdate(response.data.Birthdate);
         setFavoriteMovies(response.data.FavoriteMoviesList);
         console.log(response);
+        console.log(response.data.movies);
       })
       .catch((error) => console.error(error));
   };
@@ -67,7 +69,7 @@ export function ProfileView(props) {
       <Row>
         <h5>Your favorite movies</h5>
         <FavoriteMovies
-          // movies={movies}
+          movies={movies}
           favoriteMovies={favoriteMovies}
           currentUser={currentUser}
           token={token}
