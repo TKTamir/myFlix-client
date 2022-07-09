@@ -3,12 +3,12 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export function Menubar({ user }) {
+export function Menubar({ user, onLoggedOut }) {
   const handelLogOut = (e) => {
     e.preventDefault();
     localStorage.clear();
     window.open('/', '_self');
-    props.onLoggedOut(user);
+    onLoggedOut(user);
   };
 
   const isAuth = () => {

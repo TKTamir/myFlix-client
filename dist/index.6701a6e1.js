@@ -45247,12 +45247,12 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-function Menubar({ user  }) {
+function Menubar({ user , onLoggedOut  }) {
     const handelLogOut = (e)=>{
         e.preventDefault();
         localStorage.clear();
         window.open('/', '_self');
-        props.onLoggedOut(user);
+        onLoggedOut(user);
     };
     const isAuth = ()=>{
         if (typeof window == 'undefined') return false;
