@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ProfileView } from './profile-view';
 import axios from 'axios';
 import { Container, Col, Row, Button, Form } from 'react-bootstrap';
@@ -47,6 +47,21 @@ export default function UpdateUser(props) {
 
     return isReq;
   };
+  const getUser = () => {
+    axios
+      .get(`https://appformovies.herokuapp.com/users/${currentUser}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setUsername(response.data.Username);
+        setEmail(response.data.Email);
+        console.log(response);
+      })
+      .catch((error) => console.error(error));
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const handleUpdate = () => {
     let user = localStorage.getItem('user');
@@ -71,7 +86,7 @@ export default function UpdateUser(props) {
           alert('Profile was successfully updated.');
           localStorage.setItem('user', response.data.Username);
           console.log(response.data);
-          window.open('/users/:username', '_self');
+          window.open('/', '_self');
         })
         .catch((error) => {
           console.error(error);
@@ -105,7 +120,7 @@ export default function UpdateUser(props) {
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <label>Birthdate:</label>
       <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
-      <Button className="mx-3" variant="primary" type="submit" onClick={(e) => handleUpdate(e)}>
+      <Button className="mx-3" variant="primary" onClick={(e) => handleUpdate(e)}>
         Update
       </Button>
       <Button variant="danger" onClick={handleDelete}>
