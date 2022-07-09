@@ -9,11 +9,13 @@ import './movie-view.scss';
 export class MovieView extends React.Component {
   constructor() {
     super();
+
     this.state = {
       movies: [],
       user: null,
     };
   }
+
   keypressCallback(event) {
     console.log(event.key);
   }
@@ -59,7 +61,6 @@ export class MovieView extends React.Component {
         console.log(error);
       });
   };
-
   render() {
     const { movie, user, onBackClick } = this.props;
 
