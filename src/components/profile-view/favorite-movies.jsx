@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Container, Col, Row, Button, Card } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 
-export default function FavoriteMovies(FavoriteMovieList) {
-  const [movies, setMovies] = useState([]);
+export default function FavoriteMovies(props) {
+  const { movies, favoriteMovies, currentUser, token } = props;
 
   const FavoriteMoviesList = movies.filter((movies) => {
     FavoriteMovies.includes(movies._id);
@@ -17,7 +17,6 @@ export default function FavoriteMovies(FavoriteMovieList) {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        setMovies('');
         alert('The movie has been successfuly removed.');
         window.open('/users/:username', '_self');
       })
