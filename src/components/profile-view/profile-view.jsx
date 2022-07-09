@@ -11,7 +11,7 @@ export function ProfileView(props) {
   const [favoriteMovies, setFavoriteMovies] = useState({});
   const [email, setEmail] = useState('');
   const [birthdate, setBirthdate] = useState('');
-  const [movies, setMovies] = useState('');
+  const movies = this.props;
 
   const [user, setUser] = useState(props.user);
   const token = localStorage.getItem('token');
@@ -25,7 +25,6 @@ export function ProfileView(props) {
       })
       .then((response) => {
         setUser(response.data);
-        setMovies(response.data.movies);
         setUsername(response.data.Username);
         setEmail(response.data.Email);
         setBirthdate(response.data.Birthdate);
