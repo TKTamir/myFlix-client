@@ -41,14 +41,15 @@ export default function FavoriteMovies(props) {
       {favoriteMovies.length === 0 ? (
         <p>You have yet to add a Favorite Movie.</p>
       ) : (
-        favoriteMovies.map((movie, ImagePath, Title, _id) => {
+        favoriteMovies.map((movieId) => {
+          let movie = movies.find((m) => m._id === movieId);
           return (
             <>
               <Figure>
-                <Link to={`/movies/${_id}`}>
-                  <Figure.Image variant="top" src={ImagePath} alt={Title} />
+                <Link to={`/movies/${movie._id}`}>
+                  <Figure.Image variant="top" src={movie.ImagePath} alt={movie.Title} />
 
-                  <Figure.Caption>{Title}</Figure.Caption>
+                  <Figure.Caption>{movie.Title}</Figure.Caption>
                 </Link>
 
                 <Link to={`/movies/${movie._id}`}>

@@ -45690,7 +45690,7 @@ function ProfileView(props) {
     });
     const [email, setEmail] = _react.useState('');
     const [birthdate, setBirthdate] = _react.useState('');
-    const movies = this.props;
+    const movies = props.movies;
     const [user, setUser] = _react.useState(props.user);
     const token = localStorage.getItem('token');
     const currentUser = localStorage.getItem('user');
@@ -45963,40 +45963,42 @@ function FavoriteMovies(props) {
             },
             __self: this,
             children: "You have yet to add a Favorite Movie."
-        }) : favoriteMovies.map((movie, ImagePath, Title, _id)=>{
+        }) : favoriteMovies.map((movieId)=>{
+            let movie = movies.find((m)=>m._id === movieId
+            );
             return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Figure, {
                     __source: {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 47
+                        lineNumber: 48
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
-                            to: `/movies/${_id}`,
+                            to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 48
+                                lineNumber: 49
                             },
                             __self: this,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Image, {
                                     variant: "top",
-                                    src: ImagePath,
-                                    alt: Title,
+                                    src: movie.ImagePath,
+                                    alt: movie.Title,
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 49
+                                        lineNumber: 50
                                     },
                                     __self: this
                                 }),
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Caption, {
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 51
+                                        lineNumber: 52
                                     },
                                     __self: this,
-                                    children: Title
+                                    children: movie.Title
                                 })
                             ]
                         }),
@@ -46004,7 +46006,7 @@ function FavoriteMovies(props) {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 54
+                                lineNumber: 55
                             },
                             __self: this,
                             children: [
@@ -46013,7 +46015,7 @@ function FavoriteMovies(props) {
                                     variant: "primary",
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 55
+                                        lineNumber: 56
                                     },
                                     __self: this,
                                     children: "Open"
@@ -46024,7 +46026,7 @@ function FavoriteMovies(props) {
                                     ,
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 58
+                                        lineNumber: 59
                                     },
                                     __self: this,
                                     children: "Remove From List"

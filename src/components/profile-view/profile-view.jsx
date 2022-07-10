@@ -11,7 +11,7 @@ export function ProfileView(props) {
   const [favoriteMovies, setFavoriteMovies] = useState({});
   const [email, setEmail] = useState('');
   const [birthdate, setBirthdate] = useState('');
-  const movies = this.props;
+  const movies = props.movies;
 
   const [user, setUser] = useState(props.user);
   const token = localStorage.getItem('token');
