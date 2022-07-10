@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Col, Row, Button, Card, Figure } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
 
 export default function FavoriteMovies(props) {
   const { movies, currentUser, token } = props;
@@ -49,7 +48,7 @@ export default function FavoriteMovies(props) {
                 <Link to={`/movies/${movie._id}`}>
                   <Figure.Image
                     variant="top"
-                    crossorigin="Anonymous"
+                    crossOrigin="Anonymous"
                     src={movie.ImagePath}
                     alt={movie.Title}
                   />
