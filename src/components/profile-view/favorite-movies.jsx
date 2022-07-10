@@ -47,7 +47,12 @@ export default function FavoriteMovies(props) {
             <>
               <Figure>
                 <Link to={`/movies/${movie._id}`}>
-                  <Figure.Image variant="top" src={movie.ImagePath} alt={movie.Title} />
+                  <Figure.Image
+                    variant="top"
+                    crossorigin="Anonymous"
+                    src={movie.ImagePath}
+                    alt={movie.Title}
+                  />
 
                   <Figure.Caption>{movie.Title}</Figure.Caption>
                 </Link>
