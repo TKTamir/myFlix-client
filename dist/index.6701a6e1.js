@@ -46178,121 +46178,128 @@ function UpdateUser(props) {
         }).catch((error)=>console.error(error)
         );
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
-        className: "profile-form",
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
             lineNumber: 112
         },
         __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h4", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 113
-                },
-                __self: this,
-                children: "Edit User Info:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("label", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 114
-                },
-                __self: this,
-                children: "Username:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                type: "text",
-                value: username,
-                onChange: (e)=>setUsername(e.target.value)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 115
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("label", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 116
-                },
-                __self: this,
-                children: "Password:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                type: "password",
-                value: password,
-                onChange: (e)=>setPassword(e.target.value)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 117
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("label", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 118
-                },
-                __self: this,
-                children: "Email:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                type: "email",
-                value: email,
-                onChange: (e)=>setEmail(e.target.value)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 119
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("label", {
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 120
-                },
-                __self: this,
-                children: "Birthdate:"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                type: "date",
-                value: birthdate,
-                onChange: (e)=>setBirthdate(e.target.value)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 121
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                className: "mx-3",
-                variant: "primary",
-                onClick: (e)=>handleUpdate(e)
-                ,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 122
-                },
-                __self: this,
-                children: "Update"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                variant: "danger",
-                onClick: handleDelete,
-                __source: {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 125
-                },
-                __self: this,
-                children: "Delete"
-            })
-        ]
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
+            className: "profile-form",
+            __source: {
+                fileName: "src/components/profile-view/update-user.jsx",
+                lineNumber: 113
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("h4", {
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 114
+                    },
+                    __self: this,
+                    children: "Edit User Info:"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 115
+                    },
+                    __self: this,
+                    children: "Username:"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                    type: "text",
+                    value: username,
+                    onChange: (e)=>setUsername(e.target.value)
+                    ,
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 116
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 117
+                    },
+                    __self: this,
+                    children: "Password:"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                    type: "password",
+                    value: password,
+                    onChange: (e)=>setPassword(e.target.value)
+                    ,
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 118
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 119
+                    },
+                    __self: this,
+                    children: "Email:"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                    type: "email",
+                    value: email,
+                    onChange: (e)=>setEmail(e.target.value)
+                    ,
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 120
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 121
+                    },
+                    __self: this,
+                    children: "Birthdate:"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                    type: "date",
+                    value: birthdate,
+                    onChange: (e)=>setBirthdate(e.target.value)
+                    ,
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 122
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    className: "mx-3",
+                    variant: "primary",
+                    onClick: (e)=>handleUpdate(e)
+                    ,
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 123
+                    },
+                    __self: this,
+                    children: "Update"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    variant: "danger",
+                    onClick: handleDelete,
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 126
+                    },
+                    __self: this,
+                    children: "Delete"
+                })
+            ]
+        })
     }));
 }
 exports.default = UpdateUser;

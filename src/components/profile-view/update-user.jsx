@@ -109,22 +109,24 @@ export default function UpdateUser(props) {
       .catch((error) => console.error(error));
   };
   return (
-    <form className="profile-form">
-      <h4>Edit User Info:</h4>
-      <label>Username:</label>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <label>Email:</label>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <label>Birthdate:</label>
-      <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
-      <Button className="mx-3" variant="primary" onClick={(e) => handleUpdate(e)}>
-        Update
-      </Button>
-      <Button variant="danger" onClick={handleDelete}>
-        Delete
-      </Button>
-    </form>
+    <Container>
+      <Form className="profile-form">
+        <h4>Edit User Info:</h4>
+        <label>Username:</label>
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <label>Password:</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <label>Email:</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <label>Birthdate:</label>
+        <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
+        <Button className="mx-3" variant="primary" onClick={(e) => handleUpdate(e)}>
+          Update
+        </Button>
+        <Button variant="danger" onClick={handleDelete}>
+          Delete
+        </Button>
+      </Form>
+    </Container>
   );
 }
