@@ -23,8 +23,8 @@ export function RegistrationView(props) {
     if (!username) {
       setValues({ ...values, usernameErr: 'Username Required' });
       isReq = false;
-    } else if (username.length < 2) {
-      setValues({ ...values, usernameErr: 'Username must be 2 characters long' });
+    } else if (username.length < 4) {
+      setValues({ ...values, usernameErr: 'Username must be 4 characters long' });
       isReq = false;
     }
     if (!password) {
@@ -68,6 +68,7 @@ export function RegistrationView(props) {
         })
         .catch((e) => {
           console.log('Error in registration process');
+          alert('It seems something went wrong');
         });
     }
   };
@@ -97,7 +98,7 @@ export function RegistrationView(props) {
                     <Form.Label>Username: </Form.Label>
                     <Form.Control
                       type="text"
-                      value={username}
+                      defaultValue={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Enter Username"
                       minLength="4"
@@ -109,7 +110,7 @@ export function RegistrationView(props) {
                     <Form.Label> Password:</Form.Label>
                     <Form.Control
                       type="password"
-                      value={password}
+                      defaultValue={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter Password"
                       minLength="8"
@@ -121,7 +122,7 @@ export function RegistrationView(props) {
                     <Form.Label>Email: </Form.Label>
                     <Form.Control
                       type="email"
-                      value={email}
+                      defaultValue={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="example@email.com"
                       required
@@ -132,7 +133,7 @@ export function RegistrationView(props) {
                     <Form.Label>Birthdate: </Form.Label>
                     <Form.Control
                       type="date"
-                      value={birthdate}
+                      defaultValue={birthdate}
                       onChange={(e) => setBirthdate(e.target.value)}
                       placeholder="30.01.1990"
                       required

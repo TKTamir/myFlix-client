@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Col, Row, Button, Form } from 'react-bootstrap';
+import moment from 'moment';
 
 export default function UpdateUser(props) {
   const { user } = props;
@@ -15,14 +16,32 @@ export default function UpdateUser(props) {
     passwordErr: '',
     emailErr: '',
   });
+
+  const getUser = () => {
+    axios
+      .get(`https://appformovies.herokuapp.com/users/${currentUser}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setUsername(response.data.Username);
+        setBirthdate(moment(new Date(response.data.Birthdate)).format('yyyy-MM-DD'));
+        setEmail(response.data.Email);
+        console.log(response);
+      })
+      .catch((error) => console.error(error));
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
+
   //Validate for handleUpdate
   const validate = () => {
     let isReq = true;
     if (!username) {
       setValues({ ...values, usernameErr: 'Username Required' });
       isReq = false;
-    } else if (username.length < 2) {
-      setValues({ ...values, usernameErr: 'Username must be 2 characters long' });
+    } else if (username.length < 4) {
+      setValues({ ...values, usernameErr: 'Username must be 4 characters long' });
       isReq = false;
     }
     if (!password) {
@@ -46,21 +65,6 @@ export default function UpdateUser(props) {
 
     return isReq;
   };
-  const getUser = () => {
-    axios
-      .get(`https://appformovies.herokuapp.com/users/${currentUser}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        setUsername(response.data.Username);
-        setEmail(response.data.Email);
-        console.log(response);
-      })
-      .catch((error) => console.error(error));
-  };
-  useEffect(() => {
-    getUser();
-  }, []);
 
   const handleUpdate = () => {
     let user = localStorage.getItem('user');
@@ -116,19 +120,21 @@ export default function UpdateUser(props) {
           <Form.Label>Username:</Form.Label>
           <Form.Control
             type="text"
-            defaultvalue={username}
+            defaultValue={username}
             required
             onChange={(e) => setUsername(e.target.value)}
           />
+          {values.usernameErr && <p>{values.usernameErr}</p>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Password:</Form.Label>
           <Form.Control
             type="password"
-            defaultvalue={password}
+            defaultValue={password}
             required
             onChange={(e) => setPassword(e.target.value)}
           />
+          {values.passwordErr && <p>{values.passwordErr}</p>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Email:</Form.Label>
@@ -138,15 +144,17 @@ export default function UpdateUser(props) {
             required
             onChange={(e) => setEmail(e.target.value)}
           />
+          {values.emailErr && <p>{values.emailErr}</p>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Birthdate:</Form.Label>
           <Form.Control
             type="date"
-            defaultvalue={birthdate}
+            defaultValue={birthdate}
             required
             onChange={(e) => setBirthdate(e.target.value)}
           />
+          {values.birthdateErr && <p>{values.birthdateErr}</p>}
         </Form.Group>
 
         <Button className="mx-3" variant="primary" onClick={(e) => handleUpdate(e)}>
