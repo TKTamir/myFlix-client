@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Col, Row, Button, Figure } from 'react-bootstrap';
+import { Container, Col, Row, Button, Figure, Card } from 'react-bootstrap';
 import './profile-view.scss';
 
 export default function FavoriteMovies(props) {
@@ -37,51 +37,49 @@ export default function FavoriteMovies(props) {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col xs={12}>
-          <h3>Your favorite movies:</h3>
-        </Col>
-      </Row>
-      {favoriteMovies.length === 0 ? (
+    <Card className="mx-3 my-3">
+      <Card.Body>
         <Row>
           <Col xs={12}>
-            <p>You have yet to add a Favorite Movie.</p>{' '}
+            <h3>Your favorite movies:</h3>
           </Col>
+          {favoriteMovies.length === 0 ? (
+            <Col xs={12}>
+              <p>You have yet to add a Favorite Movie.</p>{' '}
+            </Col>
+          ) : (
+            favoriteMovies.map((movieId) => {
+              let movie = movies.find((m) => m._id === movieId);
+
+              return (
+                <Col xs={12} md={6} lg={4} className="fav-movie" key={movie.id}>
+                  <Figure>
+                    <Link to={`/movies/${movie._id}`}>
+                      <Figure.Image
+                        variant="top"
+                        crossOrigin="Anonymous"
+                        src={movie.ImagePath}
+                        alt={movie.Title}
+                      />
+
+                      <Figure.Caption>{movie.Title}</Figure.Caption>
+                    </Link>
+
+                    <Link to={`/movies/${movie._id}`}>
+                      <Button className="button" variant="primary">
+                        Open
+                      </Button>
+                      <Button variant="secondary" onClick={() => removeFavorite(movie._id)}>
+                        Remove From Favorites
+                      </Button>
+                    </Link>
+                  </Figure>
+                </Col>
+              );
+            })
+          )}
         </Row>
-      ) : (
-        favoriteMovies.map((movieId) => {
-          let movie = movies.find((m) => m._id === movieId);
-
-          return (
-            <Row key={movie._id}>
-              <Col xs={12} md={6} lg={4} className="fav-movie">
-                <Figure>
-                  <Link to={`/movies/${movie._id}`}>
-                    <Figure.Image
-                      variant="top"
-                      crossOrigin="Anonymous"
-                      src={movie.ImagePath}
-                      alt={movie.Title}
-                    />
-
-                    <Figure.Caption>{movie.Title}</Figure.Caption>
-                  </Link>
-
-                  <Link to={`/movies/${movie._id}`}>
-                    <Button className="button" variant="primary">
-                      Open
-                    </Button>
-                    <Button variant="secondary" onClick={() => removeFavorite(movie._id)}>
-                      Remove From Favorites
-                    </Button>
-                  </Link>
-                </Figure>
-              </Col>
-            </Row>
-          );
-        })
-      )}
-    </Container>
+      </Card.Body>
+    </Card>
   );
 }

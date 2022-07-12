@@ -1,0 +1,18 @@
+.fav-movie{
+    margin-bottom: 15px;
+    figure{
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        img{
+            height: 400px;
+            width: 270px;
+        }
+        figcaption{
+            text-align: center;
+            font-weight: 600;
+            color: rgb(43, 19, 19);
+        }
+    }
+}

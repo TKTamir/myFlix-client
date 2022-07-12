@@ -40,7 +40,7 @@ export function ProfileView(props) {
 
   return (
     <Container>
-      <Row>
+      <Row className="my-3">
         <Col xs={12} sm={4}>
           <Card>
             <Card.Body>

@@ -113,7 +113,7 @@ export default function UpdateUser(props) {
       .catch((error) => console.error(error));
   };
   return (
-    <Container>
+    <Container className="mx-3 my-3">
       <Form className="profile-form">
         <Form.Group>
           <h4>Edit User Info:</h4>

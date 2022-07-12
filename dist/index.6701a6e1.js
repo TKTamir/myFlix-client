@@ -45718,6 +45718,7 @@ function ProfileView(props) {
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                className: "my-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 43
@@ -45875,153 +45876,147 @@ function FavoriteMovies(props) {
         }).catch((error)=>console.error(error)
         );
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
+        className: "mx-3 my-3",
         __source: {
             fileName: "src/components/profile-view/favorite-movies.jsx",
             lineNumber: 40
         },
         __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
+            __source: {
+                fileName: "src/components/profile-view/favorite-movies.jsx",
+                lineNumber: 41
+            },
+            __self: this,
+            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 41
+                    lineNumber: 42
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                    xs: 12,
-                    __source: {
-                        fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 42
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                        xs: 12,
                         __source: {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
                             lineNumber: 43
                         },
                         __self: this,
-                        children: "Your favorite movies:"
-                    })
-                })
-            }),
-            favoriteMovies.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                __source: {
-                    fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 47
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
-                    xs: 12,
-                    __source: {
-                        fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 48
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                        children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 49
+                                lineNumber: 44
                             },
                             __self: this,
-                            children: "You have yet to add a Favorite Movie."
-                        }),
-                        ' '
-                    ]
-                })
-            }) : favoriteMovies.map((movieId)=>{
-                let movie = movies.find((m)=>m._id === movieId
-                );
-                return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    __source: {
-                        fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 57
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                            children: "Your favorite movies:"
+                        })
+                    }),
+                    favoriteMovies.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
                         xs: 12,
-                        md: 6,
-                        lg: 4,
-                        className: "fav-movie",
                         __source: {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 58
+                            lineNumber: 47
                         },
                         __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Figure, {
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                __source: {
+                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                    lineNumber: 48
+                                },
+                                __self: this,
+                                children: "You have yet to add a Favorite Movie."
+                            }),
+                            ' '
+                        ]
+                    }) : favoriteMovies.map((movieId)=>{
+                        let movie = movies.find((m)=>m._id === movieId
+                        );
+                        return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                            xs: 12,
+                            md: 6,
+                            lg: 4,
+                            className: "fav-movie",
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 59
+                                lineNumber: 55
                             },
                             __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
-                                    to: `/movies/${movie._id}`,
-                                    __source: {
-                                        fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 60
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Image, {
-                                            variant: "top",
-                                            crossOrigin: "Anonymous",
-                                            src: movie.ImagePath,
-                                            alt: movie.Title,
-                                            __source: {
-                                                fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 61
-                                            },
-                                            __self: this
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Caption, {
-                                            __source: {
-                                                fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 68
-                                            },
-                                            __self: this,
-                                            children: movie.Title
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
-                                    to: `/movies/${movie._id}`,
-                                    __source: {
-                                        fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 71
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            className: "button",
-                                            variant: "primary",
-                                            __source: {
-                                                fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 72
-                                            },
-                                            __self: this,
-                                            children: "Open"
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            variant: "secondary",
-                                            onClick: ()=>removeFavorite(movie._id)
-                                            ,
-                                            __source: {
-                                                fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 75
-                                            },
-                                            __self: this,
-                                            children: "Remove From Favorites"
-                                        })
-                                    ]
-                                })
-                            ]
-                        })
+                            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Figure, {
+                                __source: {
+                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                    lineNumber: 56
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
+                                        to: `/movies/${movie._id}`,
+                                        __source: {
+                                            fileName: "src/components/profile-view/favorite-movies.jsx",
+                                            lineNumber: 57
+                                        },
+                                        __self: this,
+                                        children: [
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Image, {
+                                                variant: "top",
+                                                crossOrigin: "Anonymous",
+                                                src: movie.ImagePath,
+                                                alt: movie.Title,
+                                                __source: {
+                                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                                    lineNumber: 58
+                                                },
+                                                __self: this
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Caption, {
+                                                __source: {
+                                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                                    lineNumber: 65
+                                                },
+                                                __self: this,
+                                                children: movie.Title
+                                            })
+                                        ]
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
+                                        to: `/movies/${movie._id}`,
+                                        __source: {
+                                            fileName: "src/components/profile-view/favorite-movies.jsx",
+                                            lineNumber: 68
+                                        },
+                                        __self: this,
+                                        children: [
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                className: "button",
+                                                variant: "primary",
+                                                __source: {
+                                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                                    lineNumber: 69
+                                                },
+                                                __self: this,
+                                                children: "Open"
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                variant: "secondary",
+                                                onClick: ()=>removeFavorite(movie._id)
+                                                ,
+                                                __source: {
+                                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                                    lineNumber: 72
+                                                },
+                                                __self: this,
+                                                children: "Remove From Favorites"
+                                            })
+                                        ]
+                                    })
+                                ]
+                            })
+                        }, movie.id));
                     })
-                }, movie._id));
+                ]
             })
-        ]
+        })
     }));
 }
 exports.default = FavoriteMovies;
@@ -46173,6 +46168,7 @@ function UpdateUser(props) {
         );
     };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+        className: "mx-3 my-3",
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
             lineNumber: 116
