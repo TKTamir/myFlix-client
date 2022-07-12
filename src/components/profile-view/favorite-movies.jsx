@@ -61,7 +61,7 @@ export default function FavoriteMovies(props) {
                     Open
                   </Button>
                   <Button variant="secondary" onClick={() => removeFavorite(movie._id)}>
-                    Remove From List
+                    Remove From Favorites
                   </Button>
                 </Link>
               </Figure>

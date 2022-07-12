@@ -45919,7 +45919,7 @@ function FavoriteMovies(props) {
                                         lineNumber: 63
                                     },
                                     __self: this,
-                                    children: "Remove From List"
+                                    children: "Remove From Favorites"
                                 })
                             ]
                         })
