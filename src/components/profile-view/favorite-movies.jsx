@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Col, Row, Button, Figure } from 'react-bootstrap';
+import './profile-view.scss';
 
 export default function FavoriteMovies(props) {
   const { movies, currentUser, token } = props;
@@ -54,7 +55,7 @@ export default function FavoriteMovies(props) {
 
           return (
             <Row key={movie._id}>
-              <Col xs={12} md={6} lg={4}>
+              <Col xs={12} md={6} lg={4} className="fav-movie">
                 <Figure>
                   <Link to={`/movies/${movie._id}`}>
                     <Figure.Image
