@@ -60,7 +60,6 @@ export function ProfileView(props) {
         </Col>
       </Row>
       <Row>
-        <h3>Your favorite movies:</h3>
         <FavoriteMovies
           movies={movies}
           favoriteMovies={favoriteMovies}

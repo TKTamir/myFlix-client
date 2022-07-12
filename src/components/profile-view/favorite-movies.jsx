@@ -38,46 +38,49 @@ export default function FavoriteMovies(props) {
   return (
     <Container>
       <Row>
-        {favoriteMovies.length === 0 ? (
-          <Row>
-            <Col>
-              <p>You have yet to add a Favorite Movie.</p>{' '}
-            </Col>
-          </Row>
-        ) : (
-          favoriteMovies.map((movieId) => {
-            let movie = movies.find((m) => m._id === movieId);
-
-            return (
-              <Row>
-                <Col>
-                  <Figure>
-                    <Link to={`/movies/${movie._id}`}>
-                      <Figure.Image
-                        variant="top"
-                        crossOrigin="Anonymous"
-                        src={movie.ImagePath}
-                        alt={movie.Title}
-                      />
-
-                      <Figure.Caption>{movie.Title}</Figure.Caption>
-                    </Link>
-
-                    <Link to={`/movies/${movie._id}`}>
-                      <Button className="button" variant="primary">
-                        Open
-                      </Button>
-                      <Button variant="secondary" onClick={() => removeFavorite(movie._id)}>
-                        Remove From Favorites
-                      </Button>
-                    </Link>
-                  </Figure>
-                </Col>
-              </Row>
-            );
-          })
-        )}
+        <Col xs={12}>
+          <h3>Your favorite movies:</h3>
+        </Col>
       </Row>
+      {favoriteMovies.length === 0 ? (
+        <Row>
+          <Col xs={12}>
+            <p>You have yet to add a Favorite Movie.</p>{' '}
+          </Col>
+        </Row>
+      ) : (
+        favoriteMovies.map((movieId) => {
+          let movie = movies.find((m) => m._id === movieId);
+
+          return (
+            <Row>
+              <Col xs={12} md={6} lg={4}>
+                <Figure>
+                  <Link to={`/movies/${movie._id}`}>
+                    <Figure.Image
+                      variant="top"
+                      crossOrigin="Anonymous"
+                      src={movie.ImagePath}
+                      alt={movie.Title}
+                    />
+
+                    <Figure.Caption>{movie.Title}</Figure.Caption>
+                  </Link>
+
+                  <Link to={`/movies/${movie._id}`}>
+                    <Button className="button" variant="primary">
+                      Open
+                    </Button>
+                    <Button variant="secondary" onClick={() => removeFavorite(movie._id)}>
+                      Remove From Favorites
+                    </Button>
+                  </Link>
+                </Figure>
+              </Col>
+            </Row>
+          );
+        })
+      )}
     </Container>
   );
 }
