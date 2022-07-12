@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
+import UserInfo from './user-info';
 import './profile-view.scss';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Container, Col, Row, Card } from 'react-bootstrap';
 
 export function ProfileView(props) {
   const [username, setUsername] = useState('');
@@ -40,16 +41,26 @@ export function ProfileView(props) {
   return (
     <Container>
       <Row>
-        <Col>
-          <UserInfo user={user} />
+        <Col xs={12} sm={4}>
+          <Card>
+            <Card.Body>
+              <UserInfo user={user} />
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
 
       <Row>
-        <UpdateUser />
+        <Col xs={12} sm={8}>
+          <Card>
+            <Card.Body>
+              <UpdateUser user={user} />
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
       <Row>
-        <h5>Your favorite movies:</h5>
+        <h3>Your favorite movies:</h3>
         <FavoriteMovies
           movies={movies}
           favoriteMovies={favoriteMovies}
