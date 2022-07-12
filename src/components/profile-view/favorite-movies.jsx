@@ -53,7 +53,7 @@ export default function FavoriteMovies(props) {
           let movie = movies.find((m) => m._id === movieId);
 
           return (
-            <Row>
+            <Row key={movie._id}>
               <Col xs={12} md={6} lg={4}>
                 <Figure>
                   <Link to={`/movies/${movie._id}`}>
