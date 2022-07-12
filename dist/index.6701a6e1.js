@@ -46189,9 +46189,10 @@ function UpdateUser(props) {
                             __self: this,
                             children: "Username:"
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                             type: "text",
-                            value: username,
+                            defaultvalue: username,
+                            required: true,
                             onChange: (e)=>setUsername(e.target.value)
                             ,
                             __source: {
@@ -46205,55 +46206,28 @@ function UpdateUser(props) {
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                     __source: {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 119
+                        lineNumber: 124
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                            __source: {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 120
-                            },
-                            __self: this,
-                            children: "Password:"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                            type: "password",
-                            value: password,
-                            onChange: (e)=>setPassword(e.target.value)
-                            ,
-                            __source: {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 121
-                            },
-                            __self: this
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                    __source: {
-                        fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 123
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                            __source: {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 124
-                            },
-                            __self: this,
-                            children: "Email:"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                            type: "email",
-                            value: email,
-                            onChange: (e)=>setEmail(e.target.value)
-                            ,
                             __source: {
                                 fileName: "src/components/profile-view/update-user.jsx",
                                 lineNumber: 125
                             },
+                            __self: this,
+                            children: "Password:"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                            type: "password",
+                            defaultvalue: password,
+                            required: true,
+                            onChange: (e)=>setPassword(e.target.value)
+                            ,
+                            __source: {
+                                fileName: "src/components/profile-view/update-user.jsx",
+                                lineNumber: 126
+                            },
                             __self: this
                         })
                     ]
@@ -46261,26 +46235,56 @@ function UpdateUser(props) {
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                     __source: {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 127
+                        lineNumber: 133
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                             __source: {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 128
+                                lineNumber: 134
+                            },
+                            __self: this,
+                            children: "Email:"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                            type: "email",
+                            value: email,
+                            required: true,
+                            onChange: (e)=>setEmail(e.target.value)
+                            ,
+                            __source: {
+                                fileName: "src/components/profile-view/update-user.jsx",
+                                lineNumber: 135
+                            },
+                            __self: this
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                    __source: {
+                        fileName: "src/components/profile-view/update-user.jsx",
+                        lineNumber: 142
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                            __source: {
+                                fileName: "src/components/profile-view/update-user.jsx",
+                                lineNumber: 143
                             },
                             __self: this,
                             children: "Birthdate:"
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                             type: "date",
-                            value: birthdate,
+                            defaultvalue: birthdate,
+                            required: true,
                             onChange: (e)=>setBirthdate(e.target.value)
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 129
+                                lineNumber: 144
                             },
                             __self: this
                         })
@@ -46293,7 +46297,7 @@ function UpdateUser(props) {
                     ,
                     __source: {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 132
+                        lineNumber: 152
                     },
                     __self: this,
                     children: "Update"
@@ -46303,7 +46307,7 @@ function UpdateUser(props) {
                     onClick: handleDelete,
                     __source: {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 135
+                        lineNumber: 155
                     },
                     __self: this,
                     children: "Delete"

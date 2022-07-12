@@ -111,15 +111,44 @@ export default function UpdateUser(props) {
   return (
     <Container>
       <Form className="profile-form">
-        <h4>Edit User Info:</h4>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <label>Birthdate:</label>
-        <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
+        <Form.Group>
+          <h4>Edit User Info:</h4>
+          <Form.Label>Username:</Form.Label>
+          <Form.Control
+            type="text"
+            defaultvalue={username}
+            required
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type="password"
+            defaultvalue={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
+            type="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Birthdate:</Form.Label>
+          <Form.Control
+            type="date"
+            defaultvalue={birthdate}
+            required
+            onChange={(e) => setBirthdate(e.target.value)}
+          />
+        </Form.Group>
+
         <Button className="mx-3" variant="primary" onClick={(e) => handleUpdate(e)}>
           Update
         </Button>
