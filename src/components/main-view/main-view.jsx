@@ -8,9 +8,9 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { Menubar } from '../navbar/navbar';
 
 // #0
-import { setMovies } from '../../actions/actions';
+import { setMovies } from '../../actions/actions.js';
 
-import MoviesList from '../movies-list/movies-list';
+import MoviesList from '../movies-list/movies-list.jsx';
 
 /*#1 The rest of components import statements but without the MovieCard's 
 because it will be imported and used in the MoviesList component rather
