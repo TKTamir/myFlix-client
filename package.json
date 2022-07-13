@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
-  "main": "index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel src/index.html"
   },
   "author": "",
   "license": "ISC",
