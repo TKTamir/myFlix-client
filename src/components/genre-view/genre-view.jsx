@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, Container, Col, Row } from 'react-bootstrap';
+import { Button, Container, CardGroup, Card } from 'react-bootstrap';
 
 import './genre-view.scss';
 
@@ -17,23 +17,23 @@ export class GenreView extends React.Component {
     const { genre, onBackClick } = this.props;
 
     return (
-      <Container>
-        <Row className="mt-3">
-          <Col className="label">Genre:</Col>
-          <Col className="value">{genre.Name}</Col>
-        </Row>
-        <Row className="mt-3">
-          <Col className="label">Description:</Col>
-          <Col className="value">{genre.Description}</Col>
-        </Row>
-        <Button
-          onClick={() => {
-            onBackClick();
-          }}
-          variant="primary"
-        >
-          Back
-        </Button>
+      <Container className="genre-view">
+        <CardGroup>
+          <Card>
+            <Card.Body>
+              <Card.Title>Genre: {genre.Name}</Card.Title>
+              <Card.Text>Description: {genre.Description}</Card.Text>
+              <Button
+                onClick={() => {
+                  onBackClick();
+                }}
+                variant="primary"
+              >
+                Back
+              </Button>
+            </Card.Body>
+          </Card>
+        </CardGroup>
       </Container>
     );
   }

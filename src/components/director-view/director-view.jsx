@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, Container, Col, Row } from 'react-bootstrap';
+import { Button, Container, Card, CardGroup } from 'react-bootstrap';
 
 import './director-view.scss';
 
@@ -19,34 +19,23 @@ export class DirectorView extends React.Component {
 
     return (
       <Container className="director-view">
-        <Row className="mt-3">
-          <Col className="label">Director: </Col>
-          <Col className="value">{director.Name}</Col>
-          <Row className="mt-3">
-            <Col className="label">Bio: </Col>
-            <Col className="value">{director.Bio}</Col>
-          </Row>
-          <Row className="mt-3">
-            <div>
-              <Col className="label">Birth: </Col>
-              <Col className="value mt-3 ml-3 ">{director.Birth}</Col>.
-            </div>
-          </Row>
-          <Row>
-            <Col>
-              <div>
-                <Button
-                  className=""
-                  onClick={() => {
-                    onBackClick();
-                  }}
-                >
-                  Back
-                </Button>
-              </div>
-            </Col>
-          </Row>
-        </Row>
+        <CardGroup>
+          <Card>
+            <Card.Body>
+              <Card.Title>Director: {director.Name}</Card.Title>
+              <Card.Text>Bio: {director.Bio}</Card.Text>
+              <Card.Text>Birth:{director.Birth}</Card.Text>
+              <Button
+                className=""
+                onClick={() => {
+                  onBackClick();
+                }}
+              >
+                Back
+              </Button>
+            </Card.Body>
+          </Card>
+        </CardGroup>
       </Container>
     );
   }
