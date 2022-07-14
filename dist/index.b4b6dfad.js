@@ -30413,11 +30413,10 @@ parcelHelpers.defineInteropFlag(exports);
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _redux = require("redux");
-var _actionsJs = require("../actions/actions.js");
+var _actions = require("../actions/actions");
 function visibilityFilter(state = "", action) {
     switch(action.type){
-        case 0, _actionsJs.SET_FILTER:
-            console.log("SET_FILTER reducer reached");
+        case 0, _actions.SET_FILTER:
             return action.value;
         default:
             return state;
@@ -30425,23 +30424,15 @@ function visibilityFilter(state = "", action) {
 }
 function movies(state = [], action) {
     switch(action.type){
-        case 0, _actionsJs.SET_MOVIES:
-            console.log("SET_MOVIES reducer reached");
+        case 0, _actions.SET_MOVIES:
             return action.value;
         default:
             return state;
     }
 }
-function user(state = "", action) {
+function user(state = {}, action) {
     switch(action.type){
-        case 0, _actionsJs.SET_USER:
-            console.log("SET_USER reducer reached");
-            return action.user || localStorage.getItem("user") || "";
-        case 0, _actionsJs.ADD_FAVMOVIE:
-            console.log("ADD_FAVMOVIE reducer reached");
-            return action.value;
-        case 0, _actionsJs.REM_FAVMOVIE:
-            console.log("REM_FAVMOVIE reducer reached");
+        case 0, _actions.SET_USER:
             return action.value;
         default:
             return state;
@@ -30454,7 +30445,7 @@ const moviesApp = (0, _redux.combineReducers)({
 });
 exports.default = moviesApp;
 
-},{"redux":"cDNB3","../actions/actions.js":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"biFwH":[function(require,module,exports) {
+},{"redux":"cDNB3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../actions/actions":"biFwH"}],"biFwH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES);
@@ -30486,11 +30477,11 @@ function setFilter(value) {
         value
     };
 }
-function setUser(user) {
+function setUser(value) {
     console.log("SET_USER reducer reached");
     return {
         type: SET_USER,
-        user
+        value
     }; //Might need to target username later
 }
 function addFavMovie(value) {
@@ -30567,27 +30558,24 @@ class MainView extends (0, _reactDefault.default).Component {
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem("user")
-            });
+            this.props.setUser(localStorage.getItem("user"));
             this.getMovies(accessToken);
         }
     }
     /* When a user logs in, the props onLoggedIn(data) is passed to the LoginView and triggers the function onLoggedIn(authData) in the MainView. This updates the state with the logged in authData.*/ onLoggedIn(authData) {
+        localStorage.setItem("token", authData.token);
+        localStorage.setItem("user", authData.user.Username);
         console.log(authData);
         this.setState({
             user: authData.user.Username
         });
-        localStorage.setItem("token", authData.token);
-        localStorage.setItem("user", authData.user.Username);
-        this.getMovies(authData.token);
+        this.props.setUser(authData.user.Username);
+        this.props.getMovies(authData.token);
     }
     /* When a user logs out, the props onLoggedout(data) is  revoking the token and setting the user to null.*/ onLoggedOut() {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        this.setState({
-            user: null
-        });
+        this.props.setUser("");
     }
     onRegister() {
         this.setState({
@@ -30617,7 +30605,7 @@ class MainView extends (0, _reactDefault.default).Component {
                     user: user1
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 102,
+                    lineNumber: 98,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -30647,7 +30635,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 105,
+                                lineNumber: 101,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -30664,7 +30652,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 125,
+                                lineNumber: 121,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -30688,7 +30676,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 136,
+                                lineNumber: 132,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -30712,7 +30700,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 157,
+                                lineNumber: 153,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -30736,7 +30724,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 177,
+                                lineNumber: 173,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -30757,7 +30745,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 197,
+                                lineNumber: 193,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -30777,24 +30765,24 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 213,
+                                lineNumber: 209,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 104,
+                        lineNumber: 100,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 103,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 101,
+            lineNumber: 97,
             columnNumber: 7
         }, this);
     }
@@ -30802,12 +30790,14 @@ class MainView extends (0, _reactDefault.default).Component {
 // #7
 let mapStateToProps = (state)=>{
     return {
-        movies: state.movies
+        movies: state.movies,
+        user: state.user
     };
 };
 // #8
 exports.default = (0, _reactRedux.connect)(mapStateToProps, {
-    setMovies: (0, _actionsJs.setMovies)
+    setMovies: (0, _actionsJs.setMovies),
+    setUser: (0, _actionsJs.setUser)
 })(MainView); // export default MainView;
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
@@ -30815,7 +30805,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-bootstrap":"3AD9A","react-redux":"bdVon","react-router-dom":"cHIiW","../navbar/navbar":"bNPgg","../../actions/actions.js":"biFwH","../movies-list/movies-list.jsx":"bPxKK","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../profile-view/profile-view":"2vVqf","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-bootstrap":"3AD9A","react-redux":"bdVon","react-router-dom":"cHIiW","../navbar/navbar":"bNPgg","../movies-list/movies-list.jsx":"bPxKK","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../profile-view/profile-view":"2vVqf","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../actions/actions.js":"biFwH"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -42379,7 +42369,7 @@ function LoginView(props) {
         }).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
-        }).catch((e)=>{
+        }).catch(()=>{
             console.log("No such user");
         });
     };

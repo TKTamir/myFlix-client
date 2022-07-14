@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { Menubar } from '../navbar/navbar';
 
 // #0
-import { setMovies } from '../../actions/actions.js';
+import { setMovies, setUser } from '../../actions/actions.js';
 
 import MoviesList from '../movies-list/movies-list.jsx';
 
@@ -41,9 +41,7 @@ class MainView extends React.Component {
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user'),
-      });
+      this.props.setUser(localStorage.getItem('user'));
       this.getMovies(accessToken);
     }
   }
@@ -51,23 +49,21 @@ class MainView extends React.Component {
   /* When a user logs in, the props onLoggedIn(data) is passed to the LoginView and triggers the function onLoggedIn(authData) in the MainView. This updates the state with the logged in authData.*/
 
   onLoggedIn(authData) {
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
     console.log(authData);
     this.setState({
       user: authData.user.Username,
     });
-
-    localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.Username);
-    this.getMovies(authData.token);
+    this.props.setUser(authData.user.Username);
+    this.props.getMovies(authData.token);
   }
 
   /* When a user logs out, the props onLoggedout(data) is  revoking the token and setting the user to null.*/
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.setState({
-      user: null,
-    });
+    this.props.setUser('');
   }
 
   onRegister() {
@@ -235,10 +231,10 @@ class MainView extends React.Component {
 
 // #7
 let mapStateToProps = (state) => {
-  return { movies: state.movies };
+  return { movies: state.movies, user: state.user };
 };
 
 // #8
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
 
 // export default MainView;

@@ -14,9 +14,9 @@ export function setFilter(value) {
   return { type: SET_FILTER, value };
 }
 
-export function setUser(user) {
+export function setUser(value) {
   console.log('SET_USER reducer reached');
-  return { type: SET_USER, user }; //Might need to target username later
+  return { type: SET_USER, value }; //Might need to target username later
 }
 
 export function addFavMovie(value) {
