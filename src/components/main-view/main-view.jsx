@@ -49,14 +49,14 @@ class MainView extends React.Component {
   /* When a user logs in, the props onLoggedIn(data) is passed to the LoginView and triggers the function onLoggedIn(authData) in the MainView. This updates the state with the logged in authData.*/
 
   onLoggedIn(authData) {
-    localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.Username);
     console.log(authData);
     this.setState({
       user: authData.user.Username,
     });
     this.props.setUser(authData.user.Username);
     this.props.getMovies(authData.token);
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
   }
 
   /* When a user logs out, the props onLoggedout(data) is  revoking the token and setting the user to null.*/
@@ -110,12 +110,6 @@ class MainView extends React.Component {
                   );
                 if (movies.length === 0) return <div className="main-view" />;
                 return <MoviesList movies={movies} />;
-
-                // return movies.map((m) => (
-                //   <Col md={3} key={m._id}>
-                //     <MovieCard movie={m} />
-                //   </Col>
-                // ));
               }}
             />
             <Route
