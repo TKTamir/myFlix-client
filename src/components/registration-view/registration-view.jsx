@@ -54,7 +54,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       axios
-        .post('https://appformovies.herokuapp.com/users', {
+        .post('https://appformovies.netlify.app/users', {
           Username: username,
           Password: password,
           Email: email,
