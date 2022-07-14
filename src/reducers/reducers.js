@@ -32,7 +32,7 @@ function user(state = '', action) {
   switch (action.type) {
     case SET_USER:
       console.log('SET_USER reducer reached');
-      return action.user;
+      return action.user || localStorage.getItem('user') || '';
     case ADD_FAVMOVIE:
       return action.value;
     case REM_FAVMOVIE:
