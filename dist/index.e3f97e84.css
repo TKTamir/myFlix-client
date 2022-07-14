@@ -1,0 +1,62 @@
+.movieCard {
+  font-weight: 500;
+}
+
+.movieCardContainer {
+  width: 270px;
+  height: 400px;
+  margin-top: 30px;
+  margin-bottom: 300px;
+}
+
+
+
+
+
+
+
+
+
+.label {
+  color: #123c69;
+  font-weight: 700;
+}
+
+.fav-movie {
+  margin-bottom: 15px;
+}
+
+.fav-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-movie figure img {
+  height: 400px;
+  width: 270px;
+}
+
+.fav-movie figure figcaption {
+  text-align: center;
+  color: #2b1313;
+  font-weight: 600;
+}
+
+
+
+body, html {
+  background: #ae1d33;
+}
+
+.app-container {
+  width: 100%;
+  background: #ae1d33;
+}
+
+.movieViewContainer {
+  background: #fff;
+}
+
+/*# sourceMappingURL=index.e3f97e84.css.map */
