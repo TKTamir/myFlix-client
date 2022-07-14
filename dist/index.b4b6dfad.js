@@ -42624,7 +42624,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) (0, _axiosDefault.default).post("https://appformovies.netlify.app/users", {
+        if (isReq) (0, _axiosDefault.default).post("https://appformovies.herokuapp.com/users", {
             Username: username,
             Password: password,
             Email: email,
