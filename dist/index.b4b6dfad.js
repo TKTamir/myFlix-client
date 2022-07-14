@@ -30432,12 +30432,24 @@ function movies(state = [], action) {
             return state;
     }
 }
-function moviesApp(state = {}, action) {
-    return {
-        visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-        movies: movies(state.movies, action)
-    };
+function user(state = "", action) {
+    switch(action.type){
+        case 0, _actionsJs.SET_USER:
+            console.log("SET_USER reducer reached");
+            return action.user;
+        case 0, _actionsJs.ADD_FAVMOVIE:
+            return action.value;
+        case 0, _actionsJs.REM_FAVMOVIE:
+            return action.value;
+        default:
+            return state;
+    }
 }
+const moviesApp = (0, _redux.combineReducers)({
+    visibilityFilter,
+    movies,
+    user
+});
 exports.default = moviesApp;
 
 },{"redux":"cDNB3","../actions/actions.js":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"biFwH":[function(require,module,exports) {
@@ -30445,10 +30457,19 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES);
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER);
+parcelHelpers.export(exports, "SET_USER", ()=>SET_USER);
+parcelHelpers.export(exports, "ADD_FAVMOVIE", ()=>ADD_FAVMOVIE);
+parcelHelpers.export(exports, "REM_FAVMOVIE", ()=>REM_FAVMOVIE);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies);
 parcelHelpers.export(exports, "setFilter", ()=>setFilter);
+parcelHelpers.export(exports, "setUser", ()=>setUser);
+parcelHelpers.export(exports, "addFavMovie", ()=>addFavMovie);
+parcelHelpers.export(exports, "remFavMovie", ()=>remFavMovie);
 const SET_MOVIES = "SET_MOVIES";
 const SET_FILTER = "SET_FILTER";
+const SET_USER = "SET_USER";
+const ADD_FAVMOVIE = "ADD_FAVMOVIE";
+const REM_FAVMOVIE = "REM_FAVMOVIE";
 function setMovies(value) {
     console.log("SET_MOVIES reducer reached");
     return {
@@ -30460,6 +30481,27 @@ function setFilter(value) {
     console.log("SET_FILTER reducer reached");
     return {
         type: SET_FILTER,
+        value
+    };
+}
+function setUser(user) {
+    console.log("SET_USER reducer reached");
+    return {
+        type: SET_USER,
+        user
+    }; //Might need to target username later
+}
+function addFavMovie(value) {
+    console.log("ADD_FAVMOVIE reducer reached");
+    return {
+        type: ADD_FAVMOVIE,
+        value
+    };
+}
+function remFavMovie(value) {
+    console.log("REM_FAVMOVIE reducer reached");
+    return {
+        type: REM_FAVMOVIE,
         value
     };
 }
