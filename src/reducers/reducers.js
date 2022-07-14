@@ -34,8 +34,10 @@ function user(state = '', action) {
       console.log('SET_USER reducer reached');
       return action.user || localStorage.getItem('user') || '';
     case ADD_FAVMOVIE:
+      console.log('ADD_FAVMOVIE reducer reached');
       return action.value;
     case REM_FAVMOVIE:
+      console.log('REM_FAVMOVIE reducer reached');
       return action.value;
     default:
       return state;
