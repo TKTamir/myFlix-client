@@ -16,7 +16,7 @@ export function ProfileView(props) {
   const [birthdate, setBirthdate] = useState('');
   const movies = props.movies;
 
-  const [user, setUser] = useState(props.user);
+  const user = this.props.setUser;
   const token = localStorage.getItem('token');
 
   // const currentUser = localStorage.getItem('user');
@@ -28,7 +28,7 @@ export function ProfileView(props) {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        setUser(response.data);
+        this.props.setUser(response.data);
         setUsername(response.data.Username);
         setEmail(response.data.Email);
         setBirthdate(response.data.Birthdate);
@@ -81,4 +81,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProfileView);
+export default connect(mapStateToProps, { setUser })(ProfileView);

@@ -30780,7 +30780,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-bootstrap":"3AD9A","react-redux":"bdVon","react-router-dom":"cHIiW","../navbar/navbar":"bNPgg","../movies-list/movies-list.jsx":"bPxKK","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../profile-view/profile-view":"2vVqf","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../actions/actions.js":"biFwH"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-bootstrap":"3AD9A","react-redux":"bdVon","react-router-dom":"cHIiW","../navbar/navbar":"bNPgg","../movies-list/movies-list.jsx":"bPxKK","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-view/movie-view":"ggaUx","../profile-view/profile-view":"2vVqf","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../actions/actions.js":"biFwH","../movie-card/movie-card":"bwuIu"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -43316,7 +43316,7 @@ function ProfileView(props) {
     const [email, setEmail] = (0, _react.useState)("");
     const [birthdate, setBirthdate] = (0, _react.useState)("");
     const movies = props.movies;
-    const [user, setUser] = (0, _react.useState)(props.user);
+    const user = this.props.setUser;
     const token = localStorage.getItem("token");
     // const currentUser = localStorage.getItem('user');
     const { currentUser  } = this.props.setUser(response.data);
@@ -43326,7 +43326,7 @@ function ProfileView(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            setUser(response.data);
+            this.props.setUser(response.data);
             setUsername(response.data.Username);
             setEmail(response.data.Email);
             setBirthdate(response.data.Birthdate);
@@ -43433,14 +43433,16 @@ function ProfileView(props) {
         columnNumber: 5
     }, this);
 }
-_s(ProfileView, "7qFCP7EvV8v9Y4p48klhHNbQkgg=");
+_s(ProfileView, "fX2YjDSfYUnyh+HtvBhCfAcW8t8=");
 _c = ProfileView;
 const mapStateToProps = (state)=>{
     return {
         user: state.user
     };
 };
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(ProfileView);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, {
+    setUser: (0, _actionsJs.setUser)
+})(ProfileView);
 var _c;
 $RefreshReg$(_c, "ProfileView");
 
