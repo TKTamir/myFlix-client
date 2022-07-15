@@ -6,6 +6,9 @@ import UserInfo from './user-info';
 import './profile-view.scss';
 import { Container, Col, Row, Card } from 'react-bootstrap';
 
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions.js';
+
 export function ProfileView(props) {
   const [username, setUsername] = useState('');
   const [favoriteMovies, setFavoriteMovies] = useState({});
@@ -16,7 +19,8 @@ export function ProfileView(props) {
   const [user, setUser] = useState(props.user);
   const token = localStorage.getItem('token');
 
-  const currentUser = localStorage.getItem('user');
+  // const currentUser = localStorage.getItem('user');
+  const { currentUser } = this.props.setUser(response.data);
 
   const getUser = () => {
     axios
@@ -70,3 +74,11 @@ export function ProfileView(props) {
     </Container>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(ProfileView);

@@ -13,5 +13,6 @@ export function setFilter(value) {
 }
 
 export function setUser(value) {
+  console.log('SET_USER reducer reached');
   return { type: SET_USER, value };
 }

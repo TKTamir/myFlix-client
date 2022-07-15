@@ -8,33 +8,49 @@
   margin-top: 30px;
   margin-bottom: 300px;
 }
+
+
+
+
+
+
+
+
+
 .label {
-  font-weight: 700;
   color: #123c69;
+  font-weight: 700;
 }
 
-
-
-
+img {
+  width: 170px;
+  height: 250px;
+}
 
 .fav-movie {
   margin-bottom: 15px;
 }
+
 .fav-movie figure {
-  position: relative;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
+
 .fav-movie figure img {
   height: 400px;
   width: 270px;
 }
+
 .fav-movie figure figcaption {
   text-align: center;
+  color: #2b1313;
   font-weight: 600;
-  color: rgb(43, 19, 19);
 }
+
+
+
 body, html {
   background: #ae1d33;
 }
@@ -45,6 +61,7 @@ body, html {
 }
 
 .movieViewContainer {
-  background: #ffffff;
+  background: #fff;
 }
-/*# sourceMappingURL=index.3f764291.css.map */
+
+/*# sourceMappingURL=index.e3f97e84.css.map */
