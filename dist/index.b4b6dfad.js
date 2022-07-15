@@ -30451,18 +30451,12 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES);
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER);
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER);
-parcelHelpers.export(exports, "ADD_FAVMOVIE", ()=>ADD_FAVMOVIE);
-parcelHelpers.export(exports, "REM_FAVMOVIE", ()=>REM_FAVMOVIE);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies);
 parcelHelpers.export(exports, "setFilter", ()=>setFilter);
 parcelHelpers.export(exports, "setUser", ()=>setUser);
-parcelHelpers.export(exports, "addFavMovie", ()=>addFavMovie);
-parcelHelpers.export(exports, "remFavMovie", ()=>remFavMovie);
 const SET_MOVIES = "SET_MOVIES";
 const SET_FILTER = "SET_FILTER";
 const SET_USER = "SET_USER";
-const ADD_FAVMOVIE = "ADD_FAVMOVIE";
-const REM_FAVMOVIE = "REM_FAVMOVIE";
 function setMovies(value) {
     console.log("SET_MOVIES reducer reached");
     return {
@@ -30481,20 +30475,6 @@ function setUser(value) {
     console.log("SET_USER reducer reached");
     return {
         type: SET_USER,
-        value
-    }; //Might need to target username later
-}
-function addFavMovie(value) {
-    console.log("ADD_FAVMOVIE reducer reached");
-    return {
-        type: ADD_FAVMOVIE,
-        value
-    };
-}
-function remFavMovie(value) {
-    console.log("REM_FAVMOVIE reducer reached");
-    return {
-        type: REM_FAVMOVIE,
         value
     };
 }
