@@ -10,3 +10,6 @@ export function setFilter(value) {
   console.log('SET_FILTER reducer reached');
   return { type: SET_FILTER, value };
 }
+export function setUser(value) {
+  return { type: SET_USER, value };
+}
