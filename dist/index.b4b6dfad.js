@@ -43315,7 +43315,7 @@ function ProfileView(props) {
     const [email, setEmail] = (0, _react.useState)("");
     const [birthdate, setBirthdate] = (0, _react.useState)("");
     const movies = props.movies;
-    const [user, setUser] = (0, _react.useState)(props.user);
+    const user = this.props.setUser;
     const token = localStorage.getItem("token");
     // const currentUser = localStorage.getItem('user');
     const { currentUser  } = this.props.setUser(response.data);
@@ -43325,7 +43325,7 @@ function ProfileView(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            setUser(response.data);
+            this.props.setUser(response.data);
             setUsername(response.data.Username);
             setEmail(response.data.Email);
             setBirthdate(response.data.Birthdate);
@@ -43432,14 +43432,16 @@ function ProfileView(props) {
         columnNumber: 5
     }, this);
 }
-_s(ProfileView, "7qFCP7EvV8v9Y4p48klhHNbQkgg=");
+_s(ProfileView, "fX2YjDSfYUnyh+HtvBhCfAcW8t8=");
 _c = ProfileView;
 const mapStateToProps = (state)=>{
     return {
         user: state.user
     };
 };
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(ProfileView);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, {
+    setUser: (0, _actionsJs.setUser)
+})(ProfileView);
 var _c;
 $RefreshReg$(_c, "ProfileView");
 
