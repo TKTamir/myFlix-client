@@ -4,7 +4,6 @@ import { Container, Col, Row, Button, Form } from 'react-bootstrap';
 import moment from 'moment';
 
 export default function UpdateUser(props) {
-  const { user } = props;
   const token = localStorage.getItem('token');
   const currentUser = localStorage.getItem('user');
   const [username, setUsername] = useState('');
@@ -74,7 +73,7 @@ export default function UpdateUser(props) {
     if (isReq) {
       axios
         .put(
-          `https://appformovies.herokuapp.com/users/${user}`,
+          `https://appformovies.herokuapp.com/users/${currentUser}`,
           {
             Username: username,
             Password: password,
@@ -89,7 +88,7 @@ export default function UpdateUser(props) {
           alert('Profile was successfully updated.');
           localStorage.setItem('user', response.data.Username);
           console.log(response.data);
-          window.open('/', '_self');
+          window.location.reload(false);
         })
         .catch((error) => {
           console.error(error);
