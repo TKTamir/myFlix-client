@@ -16,11 +16,9 @@ export function ProfileView(props) {
   const [birthdate, setBirthdate] = useState('');
   const movies = props.movies;
 
-  const user = this.props.setUser;
   const token = localStorage.getItem('token');
 
-  // const currentUser = localStorage.getItem('user');
-  const { currentUser } = this.props.setUser(response.data);
+  const currentUser = localStorage.getItem('user');
 
   const getUser = () => {
     axios
@@ -48,7 +46,7 @@ export function ProfileView(props) {
         <Col xs={12} sm={4}>
           <Card>
             <Card.Body>
-              <UserInfo user={user} />
+              <UserInfo user={currentUser} />
             </Card.Body>
           </Card>
         </Col>
@@ -58,7 +56,7 @@ export function ProfileView(props) {
         <Col xs={12} sm={8}>
           <Card>
             <Card.Body>
-              <UpdateUser user={user} />
+              <UpdateUser user={currentUser} />
             </Card.Body>
           </Card>
         </Col>
