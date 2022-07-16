@@ -8,7 +8,7 @@ export default function FavoriteMovies(props) {
   const { movies, currentUser, token } = props;
   const [favoriteMovies, setFavoriteMovies] = useState('');
 
-  const getUser = () => {
+  const getUser = (response) => {
     axios
       .get(`https://appformovies.herokuapp.com/users/${currentUser}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -28,10 +28,9 @@ export default function FavoriteMovies(props) {
       .delete(`https://appformovies.herokuapp.com/users/${currentUser}/movies/${movieId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(() => {
+      .then((response) => {
         setFavoriteMovies(response.data.FavoriteMovies);
         alert('The movie has been successfuly removed.');
-        window.open('/users/:username', '_self');
       })
       .catch((error) => console.error(error));
   };
@@ -65,7 +64,7 @@ export default function FavoriteMovies(props) {
                       <Figure.Caption>{movie.Title}</Figure.Caption>
                     </Link>
 
-                    <Link to={`/movies/${movie._id}`}>
+                    <Link to={`/users/${currentUser}`}>
                       <Button className="button" variant="primary">
                         Open
                       </Button>
