@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions.js';
 
 export function ProfileView(props) {
+  const [user, setUser] = useState(props.user);
   const [username, setUsername] = useState('');
   const [favoriteMovies, setFavoriteMovies] = useState({});
   const [email, setEmail] = useState('');
@@ -19,7 +20,6 @@ export function ProfileView(props) {
   const token = localStorage.getItem('token');
 
   const currentUser = localStorage.getItem('user');
-  // const { currentUser } = this.props.setUser;
 
   const getUser = () => {
     axios
@@ -47,7 +47,7 @@ export function ProfileView(props) {
         <Col xs={12} sm={4}>
           <Card>
             <Card.Body>
-              <UserInfo user={currentUser} />
+              <UserInfo user={user} />
             </Card.Body>
           </Card>
         </Col>
@@ -57,7 +57,7 @@ export function ProfileView(props) {
         <Col xs={12} sm={8}>
           <Card>
             <Card.Body>
-              <UpdateUser user={currentUser} />
+              <UpdateUser user={user} />
             </Card.Body>
           </Card>
         </Col>
