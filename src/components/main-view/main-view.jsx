@@ -49,11 +49,8 @@ class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
-      user: authData.user.Username,
-    });
     this.props.setUser(authData.user.Username);
-    this.props.getMovies(authData.token);
+    this.getMovies(authData.token);
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
   }
@@ -89,8 +86,7 @@ class MainView extends React.Component {
 
   render() {
     // #5 movies is extracted from this.props rather than from the this.state
-    let { movies } = this.props;
-    let { user } = this.state;
+    let { movies, user } = this.props;
 
     return (
       <Router>
