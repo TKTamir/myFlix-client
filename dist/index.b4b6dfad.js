@@ -43320,7 +43320,7 @@ function ProfileView(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            this.props.setUser(response.data);
+            setUser(response.data);
             setUsername(response.data.Username);
             setEmail(response.data.Email);
             setBirthdate(response.data.Birthdate);
