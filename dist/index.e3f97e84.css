@@ -5,13 +5,13 @@
 .movieCardContainer {
   width: 270px;
   height: 400px;
-  margin-top: 30px;
-  margin-bottom: 300px;
+  margin-top: 1px;
+  margin-bottom: 5px;
 }
 
 .movie-card {
-  min-height: 700px;
-  max-height: 700px;
+  min-height: 400px;
+  max-height: 400px;
 }
 
 

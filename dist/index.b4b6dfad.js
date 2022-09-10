@@ -30597,7 +30597,8 @@ class MainView extends (0, _reactDefault.default).Component {
                                         }, void 0, false, void 0, void 0)
                                     }, void 0, false, void 0, void 0);
                                     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "main-view"
+                                        className: "main-view",
+                                        children: "Loading..."
                                     }, void 0, false, void 0, void 0);
                                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _moviesListJsxDefault.default), {
                                         movies: movies
@@ -42016,13 +42017,6 @@ class MovieCard extends (0, _reactDefault.default).Component {
                                             lineNumber: 20,
                                             columnNumber: 19
                                         }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                                            children: movie.Description
-                                        }, void 0, false, {
-                                            fileName: "src/components/movie-card/movie-card.jsx",
-                                            lineNumber: 21,
-                                            columnNumber: 19
-                                        }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                             to: `/movies/${movie._id}`,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -42030,12 +42024,12 @@ class MovieCard extends (0, _reactDefault.default).Component {
                                                 children: "Open"
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                                lineNumber: 23,
+                                                lineNumber: 22,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-card/movie-card.jsx",
-                                            lineNumber: 22,
+                                            lineNumber: 21,
                                             columnNumber: 19
                                         }, this)
                                     ]
