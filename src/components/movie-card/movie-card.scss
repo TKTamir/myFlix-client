@@ -12,15 +12,35 @@ $color3: #ffffff ;
 
 .movieCardContainer{
     width: 270px;
-    height: 400px;
+    height: 420px;
     margin-top: 1px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
 }
 
 .movie-card{
-    min-height: 400px;
-    max-height: 400px;
+    height: 420px;
+ 
+}
 
+@media all and (max-width: 1000px) {
+    .movie-card{
+        height: 450px;
+        
+    }
 
+    .movieCardContainer{
+       
+        height: 450px;
+     
+    
+    }
+    .card-img-top {
+        height: 170px;
+        width: 110px;
+    }
+}
+
+@media all and (max-width: 500px) {
+   
 }
