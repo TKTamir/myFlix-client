@@ -9,10 +9,11 @@ import './movie-view.scss';
 export class MovieView extends React.Component {
   constructor() {
     super();
-
+    const { favoriteMovies } = props;
     this.state = {
       movies: [],
       user: null,
+      favoriteMovies: [],
     };
   }
 
