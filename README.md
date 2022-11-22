@@ -4,8 +4,7 @@ Welcome to AppForMovies, an interactive database for movies.
 
 ## Screenshot
 
-<img width="951" alt="MyFlixScreenshot" src="https://user-images.githubusercontent.com/104828119/178922237-e123a59c-c787-4bb9-b422-c2cf6cd2d7cb.PNG">
-
+![image](https://user-images.githubusercontent.com/104828119/203342915-547b201a-375e-44a5-bb08-4aa0e74e956b.png)
 
 ## Tech Tools  
 ● HTML5  
